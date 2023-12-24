@@ -1,0 +1,67 @@
+.list-item {
+  display: flex;
+  align-items: center;
+  inline-size: calc(100% - 10px);
+  position: relative;
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  margin: 3px 5px;
+  padding-inline: 12px;
+  border-radius: var(--control-corner-radius);
+  outline: none;
+  background-color: var(--subtle-fill-transparent);
+  color: var(--text-primary);
+  text-decoration: none;
+  cursor: default;
+  user-select: none;
+  block-size: 34px;
+  text-decoration: none;
+}
+.list-item::before {
+  content: "";
+  position: absolute;
+  border-radius: 3px;
+  background-color: var(--accent-default);
+  transition: transform var(--control-fast-duration) var(--control-fast-out-slow-in-easing);
+  opacity: 0;
+  inset-inline-start: 0;
+  inline-size: 3px;
+  block-size: 16px;
+  transform: scaleY(0);
+}
+.list-item.selected::before {
+  transform: scaleY(1);
+  opacity: 1;
+}
+.list-item:focus-visible {
+  box-shadow: var(--focus-stroke);
+}
+.list-item:hover, .list-item.selected {
+  background-color: var(--subtle-fill-secondary);
+}
+.list-item:active {
+  background-color: var(--subtle-fill-tertiary);
+  color: var(--text-secondary);
+}
+.list-item:active::before {
+  transform: scaleY(0.625);
+}
+.list-item.disabled {
+  background-color: var(--subtle-fill-transparent);
+  color: var(--text-disabled);
+  pointer-events: none;
+}
+.list-item.disabled.selected {
+  background-color: var(--subtle-fill-secondary);
+}
+.list-item.disabled.selected::before {
+  background-color: var(--accent-disabled);
+}
+.list-item > :global(svg) {
+  inline-size: 16px;
+  block-size: auto;
+  fill: currentColor;
+  margin-inline-end: 16px;
+}
+
+/*# sourceMappingURL=ListItem.css.map */

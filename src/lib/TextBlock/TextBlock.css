@@ -1,0 +1,49 @@
+.text-block {
+  color: currentColor;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+.text-block.type-subtitle, .text-block.type-title, .text-block.type-title-large, .text-block.type-display {
+  font-family: var(--font-family-display);
+  font-weight: 600;
+}
+.text-block.type-body, .text-block.type-body-strong, .text-block.type-body-large {
+  font-family: var(--font-family-text);
+}
+.text-block.type-caption {
+  line-height: 16px;
+  font-size: var(--caption-font-size);
+  font-weight: 400;
+  font-family: var(--font-family-small);
+}
+.text-block.type-body, .text-block.type-body-strong, .text-block.type-body-large {
+  line-height: 20px;
+  font-weight: 400;
+  font-size: var(--body-font-size);
+}
+.text-block.type-body-strong {
+  font-weight: 600;
+}
+.text-block.type-body-large {
+  font-size: var(--body-large-font-size);
+  line-height: 24px;
+}
+.text-block.type-subtitle {
+  font-size: var(--subtitle-font-size);
+  line-height: 28px;
+}
+.text-block.type-title {
+  font-size: var(--title-font-size);
+  line-height: 36px;
+}
+.text-block.type-title-large {
+  font-size: var(--title-large-font-size);
+  line-height: 52px;
+}
+.text-block.type-display {
+  font-size: var(--display-font-size);
+  line-height: 92px;
+}
+
+/*# sourceMappingURL=TextBlock.css.map */
