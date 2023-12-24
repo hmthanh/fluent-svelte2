@@ -27,19 +27,19 @@
 		"!dist/**/*.spec.*"
 	],
 	"peerDependencies": {
-		"svelte": "^4.0.0"
+		"svelte": "^5.0.0"
 	},
 	"dependencies": {
-		"autoprefixer": "^10.4.16",
-		"cssnano": "^6.0.2",
 		"focus-trap": "^7.5.4",
-		"postcss-variables-prefixer": "^1.2.0",
 		"tabbable": "^6.2.0"
 	},
 	"devDependencies": {
+		"postcss-variables-prefixer": "^1.2.0",
+		"autoprefixer": "^10.4.16",
+		"cssnano": "^6.0.2",
 		"@fluentui/svg-icons": "^1.1.224",
 		"@playwright/test": "^1.40.1",
-		"@sveltejs/adapter-auto": "^3.0.0",
+		"@sveltejs/adapter-auto": "^3.0.1",
 		"@sveltejs/kit": "^2.0.6",
 		"@sveltejs/package": "^2.2.4",
 		"@sveltejs/vite-plugin-svelte": "^3.0.1",

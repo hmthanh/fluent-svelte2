@@ -1,4 +1,4 @@
-@use '../sass/mixins' as *;
+@use '../mixins' as *;
 
 .button {
 	@include flex($inline: true, $align: center, $justify: center);

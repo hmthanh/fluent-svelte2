@@ -1,39 +1,50 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
-	const dispatch = createEventDispatcher();
 
-	// @param {href} - Specifies the URL of the page the link goes to
+	/** @restProps {button | a} */
+	/** Specifies the visual styling of the button. */
+	export let variant: 'standard' | 'accent' | 'hyperlink' = 'standard';
+
+	// @param {href} - Sets an href value and converts the button element into an anchor
 	export let href = '';
 
-	// @param {disabled} - Specifies that a button should be disabled.
+	// @param {disabled} - Controls whether the button is intended for user interaction, and styles it accordingly.
 	export let disabled = false;
 
-	// @param {variant} - Specifies the visual styling of the button..
-	export let variant = 'standard';
-
-	// @param {className} - Specifies the class name of the button
+	// @param {className} - Specifies a custom class name for the button
 	let className = '';
 	export { className as class };
 
-	$: tag = href && !disabled ? 'a' : 'button';
+	// @param {element} - Obtains a bound DOM reference to the button or anchor element
 	export let element: HTMLElement | null = null;
 	// export let restProps;
+
+	const dispatch = createEventDispatcher();
 </script>
 
-<!-- svelte-ignore a11y-click-events-have-key-events -->
-
+<!--
+@component
+A button gives the user a way to trigger an immediate action. Some buttons are specialized for particular tasks, such as navigation, repeated actions, or presenting menus. Docs
+- Usage:
+    ```tsx
+    <Button>Click me!</Button>
+    ```
+-->
 <svelte:element
-	this={tag}
-	role="button"
+	this={href && !disabled ? 'a' : 'button'}
+	on:click|preventDefault|stopPropagation={() => dispatch('click')}
+	bind:this={element}
+	role={href && !disabled ? 'button' : undefined}
+	href={href && !disabled ? href : undefined}
 	tabindex="0"
 	class="button style-{variant} {className}"
 	class:disabled
 	{...$$restProps}
-	bind:this={element}
-	on:click|preventDefault|stopPropagation={() => dispatch('click')}
 >
 	<slot />
 </svelte:element>
+
+<!-- on:click|preventDefault|stopPropagation={() => dispatch('click')} -->
 
 <style lang="scss">
 	@use './Button';
