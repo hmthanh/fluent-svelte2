@@ -5,7 +5,7 @@
 	// import { dev } from '$app/env';
 	import "../lib/theme.css";
 
-	console.log("sdsdfsdf");
+	// console.log("sdsdfsdf");
 
 	// import "../site/styles/pages/home.scss";
 
