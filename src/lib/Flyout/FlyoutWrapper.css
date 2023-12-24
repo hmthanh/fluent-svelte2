@@ -1,0 +1,68 @@
+@keyframes flyout-in {
+  0% {
+    opacity: 0;
+    transform: var(--flyout-transform) var(--flyout-transition-offset, translateY(12px));
+  }
+  100% {
+    opacity: 1;
+    transform: var(--flyout-transform);
+  }
+}
+.flyout-wrapper {
+  display: inline-block;
+  inline-size: fit-content;
+  block-size: fit-content;
+  position: relative;
+}
+.flyout-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  z-index: 9999;
+}
+.flyout-anchor {
+  position: absolute;
+  z-index: 10000;
+  animation: flyout-in var(--control-normal-duration) var(--control-fast-out-slow-in-easing);
+  transform: var(--flyout-transform);
+}
+.flyout-anchor.placement-top {
+  bottom: calc(100% + var(--flyout-offset));
+  --flyout-transition-offset: translateY(12px);
+}
+.flyout-anchor.placement-bottom {
+  top: calc(100% + var(--flyout-offset));
+  --flyout-transition-offset: translateY(-12px);
+}
+.flyout-anchor.placement-left {
+  right: calc(100% + var(--flyout-offset));
+  --flyout-transition-offset: translateX(12px);
+}
+.flyout-anchor.placement-right {
+  left: calc(100% + var(--flyout-offset));
+  --flyout-transition-offset: translateX(-12px);
+}
+.flyout-anchor.placement-top.alignment-start, .flyout-anchor.placement-bottom.alignment-start {
+  inset-inline-start: 0;
+}
+.flyout-anchor.placement-top.alignment-end, .flyout-anchor.placement-bottom.alignment-end {
+  inset-inline-end: 0;
+}
+.flyout-anchor.placement-top.alignment-center, .flyout-anchor.placement-bottom.alignment-center {
+  inset-inline-start: 50%;
+  --flyout-transform: translateX(-50%);
+}
+.flyout-anchor.placement-left.alignment-start, .flyout-anchor.placement-right.alignment-start {
+  inset-block-start: 0;
+}
+.flyout-anchor.placement-left.alignment-end, .flyout-anchor.placement-right.alignment-end {
+  inset-block-end: 0;
+}
+.flyout-anchor.placement-left.alignment-center, .flyout-anchor.placement-right.alignment-center {
+  inset-block-start: 50%;
+  --flyout-transform: translateY(-50%);
+}
+
+/*# sourceMappingURL=FlyoutWrapper.css.map */

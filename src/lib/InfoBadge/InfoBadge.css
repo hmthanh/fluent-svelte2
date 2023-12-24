@@ -1,0 +1,37 @@
+.info-badge {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  user-select: none;
+  min-inline-size: 16px;
+  min-block-size: 16px;
+  border-radius: 16px;
+  padding: 2px 4px;
+  color: var(--text-on-accent-primary);
+  line-height: var(--caption-font-size);
+  font-family: var(--font-family-small);
+  font-size: var(--caption-font-size);
+}
+.info-badge.severity-attention {
+  background-color: var(--system-attention);
+}
+.info-badge.severity-success {
+  background-color: var(--system-success);
+}
+.info-badge.severity-caution {
+  background-color: var(--system-caution);
+}
+.info-badge.severity-critical {
+  background-color: var(--system-critical);
+}
+.info-badge.severity-information {
+  background-color: var(--system-solid-neutral);
+}
+.info-badge :global(svg) {
+  inline-size: 8px;
+  block-size: 8px;
+  fill: currentColor;
+}
+
+/*# sourceMappingURL=InfoBadge.css.map */

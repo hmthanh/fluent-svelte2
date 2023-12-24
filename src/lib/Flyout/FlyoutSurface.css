@@ -1,0 +1,18 @@
+.flyout {
+  user-select: none;
+  font-family: var(--font-family-text);
+  font-size: var(--body-font-size);
+  font-weight: normal;
+  line-height: 20px;
+  padding: 16px;
+  min-inline-size: 320px;
+  box-sizing: border-box;
+  color: var(--text-primary);
+  border-radius: var(--overlay-corner-radius);
+  border: 1px solid var(--surface-stroke-flyout);
+  background-color: var(--solid-background-quarternary);
+  background-clip: padding-box;
+  box-shadow: var(--flyout-shadow);
+}
+
+/*# sourceMappingURL=FlyoutSurface.css.map */

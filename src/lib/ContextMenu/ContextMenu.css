@@ -1,0 +1,9 @@
+.context-menu-wrapper {
+  display: contents;
+}
+.context-menu-anchor {
+  position: fixed;
+  z-index: 10000;
+}
+
+/*# sourceMappingURL=ContextMenu.css.map */

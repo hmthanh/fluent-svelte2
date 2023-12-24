@@ -1,0 +1,29 @@
+:global .number-box input {
+  appearance: textfield;
+}
+:global .number-box input::-webkit-outer-spin-button, :global .number-box input::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+.number-box-spinner-flyout {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--overlay-corner-radius);
+  border: 1px solid var(--surface-stroke-flyout);
+  background-clip: padding-box;
+  box-sizing: border-box;
+  background-color: var(--fds-solid-background-quarternary);
+  box-shadow: var(--flyout-shadow);
+  position: absolute;
+  padding: 2px 4px;
+  inset-inline-end: -16px;
+  z-index: 100;
+}
+.number-box-spinner-flyout :global(.number-box-spinner) {
+  margin: 2px 1px;
+  inline-size: 36px;
+  block-size: 36px;
+}
+
+/*# sourceMappingURL=NumberBox.css.map */

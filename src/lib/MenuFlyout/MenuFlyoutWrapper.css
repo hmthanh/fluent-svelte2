@@ -1,0 +1,52 @@
+.menu-flyout-wrapper {
+  display: inline-block;
+  height: auto;
+  position: relative;
+}
+.menu-flyout-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+}
+.menu-flyout-anchor {
+  position: absolute;
+  z-index: 10000;
+}
+.menu-flyout-anchor.placement-top {
+  --fds-menu-flyout-transition-offset: 50%;
+  bottom: calc(100% + var(--menu-flyout-offset));
+}
+.menu-flyout-anchor.placement-bottom {
+  top: calc(100% + var(--menu-flyout-offset));
+}
+.menu-flyout-anchor.placement-left {
+  right: calc(100% + var(--menu-flyout-offset));
+}
+.menu-flyout-anchor.placement-right {
+  left: calc(100% + var(--menu-flyout-offset));
+}
+.menu-flyout-anchor.placement-top.alignment-start, .menu-flyout-anchor.placement-bottom.alignment-start {
+  inset-inline-start: 0;
+}
+.menu-flyout-anchor.placement-top.alignment-end, .menu-flyout-anchor.placement-bottom.alignment-end {
+  inset-inline-end: 0;
+}
+.menu-flyout-anchor.placement-top.alignment-center, .menu-flyout-anchor.placement-bottom.alignment-center {
+  inset-inline-start: 50%;
+  transform: translateX(-50%);
+}
+.menu-flyout-anchor.placement-left.alignment-start, .menu-flyout-anchor.placement-right.alignment-start {
+  inset-block-start: 0;
+}
+.menu-flyout-anchor.placement-left.alignment-end, .menu-flyout-anchor.placement-right.alignment-end {
+  inset-block-end: 0;
+}
+.menu-flyout-anchor.placement-left.alignment-center, .menu-flyout-anchor.placement-right.alignment-center {
+  inset-block-start: 50%;
+  transform: translateY(-50%);
+}
+
+/*# sourceMappingURL=MenuFlyoutWrapper.css.map */

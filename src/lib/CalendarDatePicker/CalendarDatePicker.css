@@ -1,0 +1,15 @@
+.calendar-date-picker-label {
+  padding-inline-end: 2px;
+}
+.calendar-date-picker-label.placeholder:not(.disabled) {
+  color: var(--text-secondary);
+}
+.calendar-date-picker-icon {
+  inline-size: 12px;
+  block-size: auto;
+  fill: currentColor;
+  margin-inline-start: 8px;
+  color: currentColor;
+}
+
+/*# sourceMappingURL=CalendarDatePicker.css.map */

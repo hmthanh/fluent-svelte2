@@ -1,0 +1,105 @@
+.radio-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  font-family: var(--font-family-text);
+  font-size: var(--body-font-size);
+  font-weight: normal;
+  line-height: 20px;
+  position: relative;
+  margin: 0;
+  border: 1px solid var(--control-strong-stroke-default);
+  border-radius: 20px;
+  outline: none;
+  background-clip: padding-box;
+  background-color: var(--control-alt-fill-secondary);
+  appearance: none;
+  inline-size: 20px;
+  block-size: 20px;
+}
+.radio-button::before {
+  content: "";
+  inline-size: 4px;
+  block-size: 4px;
+  visibility: hidden;
+  position: absolute;
+  border-radius: 12px;
+  background-color: var(--text-on-accent-primary);
+}
+.radio-button:focus-visible {
+  box-shadow: var(--focus-stroke);
+}
+.radio-button:hover {
+  background-color: var(--control-alt-fill-tertiary);
+}
+.radio-button:active {
+  border-color: var(--control-strong-stroke-disabled);
+  background-color: var(--control-alt-fill-quarternary);
+}
+.radio-button:active::before {
+  transition: var(--control-normal-duration) var(--control-fast-out-slow-in-easing);
+  visibility: visible;
+  inline-size: 10px;
+  block-size: 10px;
+}
+.radio-button:disabled {
+  border-color: var(--control-strong-stroke-disabled);
+  background-color: var(--control-alt-fill-disabled);
+}
+.radio-button:disabled::before {
+  visibility: hidden;
+}
+.radio-button:disabled + span {
+  color: var(--text-disabled);
+}
+.radio-button:checked {
+  border: none;
+  background-color: var(--accent-default);
+}
+.radio-button:checked::before {
+  visibility: visible;
+  transition: var(--control-normal-duration) var(--control-fast-out-slow-in-easing);
+  box-shadow: 0 0 0 1px var(--control-stroke-default);
+  inline-size: 12px;
+  block-size: 12px;
+}
+.radio-button:checked:hover {
+  background-color: var(--accent-secondary);
+}
+.radio-button:checked:hover::before {
+  inline-size: 14px;
+  block-size: 14px;
+}
+.radio-button:checked:active {
+  background-color: var(--accent-tertiary);
+}
+.radio-button:checked:active::before {
+  inline-size: 10px;
+  block-size: 10px;
+}
+.radio-button:checked:disabled {
+  background-color: var(--accent-disabled);
+}
+.radio-button:checked:disabled::before {
+  box-shadow: none;
+  inline-size: 12px;
+  block-size: 12px;
+}
+.radio-button-container {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+  font-family: var(--font-family-text);
+  font-size: var(--body-font-size);
+  font-weight: normal;
+  line-height: 20px;
+  color: var(--text-primary);
+  user-select: none;
+  min-block-size: 32px;
+}
+.radio-button-container > span {
+  padding-inline-start: 8px;
+}
+
+/*# sourceMappingURL=RadioButton.css.map */

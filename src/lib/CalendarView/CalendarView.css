@@ -1,0 +1,156 @@
+.calendar-view {
+  display: inline-flex;
+  flex-direction: column;
+  text-align: start;
+  inline-size: 300px;
+  block-size: 347px;
+  position: relative;
+  user-select: none;
+  color: var(--text-primary);
+  background-clip: padding-box;
+  background-color: var(--fds-solid-background-quarternary);
+  border-radius: var(--control-corner-radius);
+  border: 1px solid var(--surface-stroke-flyout);
+  font-family: var(--font-family-text);
+}
+.calendar-view.floating {
+  border-radius: var(--overlay-corner-radius);
+  box-shadow: var(--flyout-shadow);
+}
+.calendar-view-header, .calendar-view-pagination-controls {
+  display: flex;
+  align-items: center;
+}
+.calendar-view-pagination-controls button {
+  padding: 0;
+  inline-size: 30px;
+  margin-inline-start: 4px;
+}
+.calendar-view-header {
+  box-sizing: border-box;
+  border-block-end: 1px solid var(--card-stroke-default);
+  inline-size: 100%;
+  padding: 7px;
+}
+.calendar-view-header button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  outline: none;
+  padding: 0;
+  min-block-size: 32px;
+  color: var(--text-primary);
+  background-color: var(--subtle-fill-transparent);
+  border-radius: var(--control-corner-radius);
+  line-height: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: var(--font-family-text);
+}
+.calendar-view-header button:focus-visible {
+  box-shadow: var(--focus-stroke);
+}
+.calendar-view-header button:hover {
+  background-color: var(--subtle-fill-secondary);
+}
+.calendar-view-header button:active {
+  background-color: var(--subtle-fill-tertiary);
+  color: var(--text-secondary);
+}
+.calendar-view-header button:disabled {
+  background-color: var(--sutble-fill-disabled);
+  color: var(--text-disabled);
+}
+.calendar-view-header button:disabled svg {
+  color: var(--control-strong-fill-disabled);
+}
+.calendar-view-header button svg {
+  inline-size: 16px;
+  block-size: auto;
+  fill: currentColor;
+  color: var(--control-strong-fill-default);
+}
+.calendar-view-header-text {
+  flex: 1 1 auto;
+}
+.calendar-view-header-text button {
+  inline-size: 100%;
+  padding-inline: 9px;
+  justify-content: flex-start;
+  flex: 1 1 auto;
+}
+.calendar-view-table {
+  inset: 0;
+  display: block;
+  overflow: hidden;
+  position: absolute;
+  box-sizing: border-box;
+  inline-size: calc(100% - 6px);
+  block-size: calc(100% - 6px);
+  margin: 3px;
+  font-size: 14px;
+}
+.calendar-view-table-wrapper {
+  inline-size: 298px;
+  block-size: 298px;
+  position: relative;
+  contain: layout;
+  overflow: hidden;
+  background-color: var(--layer-on-acrylic-background-default);
+}
+.calendar-view-table.view-months, .calendar-view-table.view-years {
+  margin: 11px;
+  inline-size: calc(100% - 22px);
+  block-size: calc(100% - 22px);
+}
+.calendar-view-table.view-months tr, .calendar-view-table.view-years tr {
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 17.3333333333px;
+  margin-block-end: 17.3333333333px;
+}
+.calendar-view-table td,
+.calendar-view-table th {
+  padding: 0;
+}
+.calendar-view-table th {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  block-size: 40px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+}
+.calendar-view-table thead,
+.calendar-view-table tbody {
+  inline-size: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.calendar-view-table thead tr,
+.calendar-view-table tbody {
+  background-color: var(--fds-solid-background-quarternary);
+  box-shadow: inset 0 0 0 100vmax var(--fds-layer-on-acrylic-background-default);
+}
+.calendar-view-table thead {
+  position: relative;
+  z-index: 1;
+}
+.calendar-view-table tbody {
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-end: 0;
+}
+.calendar-view-table tbody tr:last-child {
+  margin-block-end: 0;
+}
+.calendar-view-table tr {
+  display: grid;
+  inline-size: 100%;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 2px;
+  margin-block-end: 2px;
+}
+
+/*# sourceMappingURL=CalendarView.css.map */

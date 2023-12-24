@@ -1,0 +1,128 @@
+.menu-flyout-item {
+  display: flex;
+  align-items: center;
+  user-select: none;
+  font-family: var(--font-family-text);
+  font-size: var(--body-font-size);
+  font-weight: normal;
+  line-height: 20px;
+  inline-size: calc(100% - 8px);
+  position: relative;
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  margin: 2px 4px;
+  padding-inline: 12px;
+  border-radius: var(--control-corner-radius);
+  outline: none;
+  background-color: var(--subtle-fill-transparent);
+  color: var(--text-primary);
+  text-decoration: none;
+  cursor: default;
+  user-select: none;
+  block-size: 28px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-decoration: none;
+}
+.menu-flyout-item::before {
+  content: "";
+  position: absolute;
+  border-radius: 3px;
+  background-color: var(--accent-default);
+  transition: transform var(--control-fast-duration) var(--control-fast-out-slow-in-easing);
+  opacity: 0;
+  inset-inline-start: 0;
+  inline-size: 3px;
+  block-size: 0;
+}
+.menu-flyout-item:focus-visible {
+  box-shadow: var(--focus-stroke);
+}
+.menu-flyout-item:hover, .menu-flyout-item[aria-expanded=true], .menu-flyout-item.selected {
+  background-color: var(--subtle-fill-secondary);
+}
+.menu-flyout-item.checked :global .menu-flyout-item-bullet, .menu-flyout-item.checked :global .menu-flyout-item-checkmark {
+  visibility: visible;
+}
+.menu-flyout-item:active {
+  background-color: var(--subtle-fill-tertiary);
+}
+.menu-flyout-item:active::before {
+  transform: scaleY(0.625);
+}
+.menu-flyout-item.disabled {
+  background-color: var(--subtle-fill-transparent);
+  color: var(--text-disabled);
+  pointer-events: none;
+}
+.menu-flyout-item.disabled.selected {
+  background-color: var(--subtle-fill-secondary);
+}
+.menu-flyout-item.disabled.selected::before {
+  background-color: var(--accent-disabled);
+}
+.menu-flyout-item.disabled > :global(.menu-flyout-item-hint) {
+  color: var(--text-disabled);
+}
+.menu-flyout-item.selected::before {
+  opacity: 1;
+  block-size: 16px;
+}
+.menu-flyout-item.indented {
+  padding-inline-start: 40px;
+}
+.menu-flyout-item-checkmark, .menu-flyout-item-bullet {
+  visibility: hidden;
+}
+.menu-flyout-item .menu-flyout-item-arrow {
+  box-sizing: content-box;
+  inline-size: 12px;
+  block-size: 12px;
+  margin-inline-end: 0;
+  margin-inline-start: auto;
+  padding-inline-start: 24px;
+}
+.menu-flyout-item-checkmark {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  inline-size: 12px;
+  block-size: 12px;
+  margin-inline-start: 2px;
+  margin-inline-end: 14px;
+}
+.menu-flyout-item-bullet {
+  inline-size: 4px;
+  block-size: 4px;
+  border-radius: 4px;
+  margin-inline-start: 6px;
+  margin-inline-end: 18px;
+  background-color: currentColor;
+}
+.menu-flyout-item-input-label {
+  display: contents;
+}
+.menu-flyout-item > :global(svg) {
+  inline-size: 16px;
+  block-size: auto;
+  fill: currentColor;
+  margin-inline-end: 12px;
+}
+.menu-flyout-item > :global(.menu-flyout-item-hint) {
+  flex: 1 1 auto;
+  text-align: end;
+  padding-left: 24px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--text-secondary);
+}
+
+.menu-flyout-submenu-anchor {
+  --fds-menu-flyout-transition-offset: -50%;
+  z-index: 10000;
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 100%;
+}
+
+/*# sourceMappingURL=MenuFlyoutItem.css.map */
