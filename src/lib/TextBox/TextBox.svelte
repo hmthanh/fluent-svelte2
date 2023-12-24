@@ -1,15 +1,12 @@
 <script lang="ts">
-	import { createEventDispatcher } from svelte';
-	// import { get_current_component } from svelte/internal';
-	// import { externalMouseEvents, createEventForwarder } from '$lib/internal';
-	import { externalMouseEvents, createEventForwarder } from '$lib/utils';
-
-	import TextBoxButton from '../TextBox/TextBoxButton.svelte';
+	import TextBoxButton from './TextBoxButton.svelte';
+	import { createEventDispatcher } from 'svelte';
+	// import { externalMouseEvents } from '$lib/utils';
 
 	type TextInputTypes =
 		| 'text'
 		| 'number'
-		| search'
+		| 'search'
 		| 'password'
 		| 'email'
 		| 'tel'
@@ -27,7 +24,7 @@
 	export let type: TextInputTypes = 'text';
 
 	// @param {placeholder} - The initial placeholder text displayed if no value is present.
-	export let placeholder: string = undefined;
+	export let placeholder: string = '';
 
 	// @param {clearButton} - Determines whether a text clear button is present.
 	export let clearButton = true;
@@ -67,25 +64,25 @@
 	export let revealButtonElement: HTMLButtonElement = null;
 
 	const dispatch = createEventDispatcher();
-	const forwardEvents = createEventForwarder(get_current_component(), [
-		'clear',
-		search',
-		'reveal',
-		'outermousedown'
-	]);
+	// const forwardEvents = createEventForwarder(get_current_component(), [
+	// 	'clear',
+	// 	'search',
+	// 	'reveal',
+	// 	'outermousedown'
+	// ]);
 
-	function handleClear(event) {
+	function handleClear(event: Event) {
 		dispatch('clear', event);
 		inputElement.focus();
 		value = '';
 	}
 
-	function handleSearch(event) {
-		dispatch(search', event);
+	function handleSearch(event: Event) {
+		dispatch('search', event);
 		inputElement.focus();
 	}
 
-	function handleReveal(event) {
+	function handleReveal(event: Event) {
 		inputElement.focus();
 		inputElement.setAttribute('type', 'text');
 		dispatch('reveal', event);
@@ -109,24 +106,12 @@
 	};
 </script>
 
-<!--
-@component
-The TextBox control lets a user type text into an app. The text displays on the screen in a simple, plaintext format on a single line. It additionally comes with a set of buttons which allow users to perform specialized actions on the text, such as showing a password or clearing the TextBoxs contents. [Docs](https://fluent-svelte.vercel.app/docs/components/texbox)
-- Usage:
-    ```tsx
-    <TextBox placeholder="Enter your name." />
-    ```
--->
-<div
-	class="text-box-container {className}"
-	class:disabled
-	bind:this={containerElement}
-	use:externalMouseEvents={{ type: 'mousedown' }}
-	on:outermousedown
->
+<!-- use:externalMouseEvents={{ type: 'mousedown' }} -->
+<!-- on:outermousedown -->
+<div class="text-box-container {className}" class:disabled bind:this={containerElement}>
 	<!-- Dirty workaround for the fact that svelte can't handle two-way binding when the input type is dynamic. -->
 	<!-- prettier-ignore -->
-	{#if type === "text"}
+	<!-- {#if type === "text"}
 		<input type="text" bind:value bind:this={inputElement} use:forwardEvents {...inputProps} />
 		{:else if type === "number"}
 		<input type="number" bind:value bind:this={inputElement} use:forwardEvents {...inputProps} />
@@ -150,7 +135,7 @@ The TextBox control lets a user type text into an app. The text displays on the 
 		<input type="time" bind:value bind:this={inputElement} use:forwardEvents {...inputProps} />
 		{:else if type === "week"}
 		<input type="week" bind:value bind:this={inputElement} use:forwardEvents {...inputProps} />
-	{/if}
+	{/if} -->
 	<div class="text-box-underline" />
 	<div class="text-box-buttons" bind:this={buttonsContainerElement}>
 		{#if !disabled}
@@ -175,7 +160,7 @@ The TextBox control lets a user type text into an app. The text displays on the 
 					</svg>
 				</TextBoxButton>
 			{/if}
-			{#if type === search' && searchButton}
+			{#if type === 'search' && searchButton}
 				<TextBoxButton
 					aria-label="Search"
 					on:click={handleSearch}

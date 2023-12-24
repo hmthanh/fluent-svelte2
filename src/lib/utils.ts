@@ -1,4 +1,4 @@
-import { onMount, type SvelteComponent } from 'svelte';
+import { onMount, SvelteComponent } from 'svelte';
 import type { Options as FocusTrapOptions } from 'focus-trap';
 
 import { tabbable } from 'tabbable';
@@ -68,39 +68,58 @@ export function externalMouseEvents(
 	};
 }
 
-type Callback = (e: Event) => void;
+export function createEventForwarder(component: SvelteComponent | null, exclude: string[] = []) {
+	if (component === null) {
+		return () => {};
+	}
+	type EventCallback = (event: any) => void;
 
-interface Options {
-	exclude?: string[];
-}
+	let $on: (eventType: string, callback: EventCallback) => () => void;
 
-export function createEventForwarder(component: SvelteComponent, { exclude = [] }: Options = {}) {
-	const events: [string, Callback][] = [];
+	// This is a list of events bound before mount.
+	let events: [string, EventCallback][] = [];
 
 	let forward: (e: Event) => void;
 
-	component.$on = (name: string, callback: Callback) => {
-		if (exclude.includes(name)) {
-			return component.$$.callbacks[name].push(callback);
+	component.$on = (eventType: string, callback: EventCallback) => {
+		let destructor = () => {};
+
+		if (exclude.includes(eventType)) {
+			// Bail out of the event forwarding and run the normal Svelte $on() code
+
+			const callbacks =
+				component.$$.callbacks[eventType] || (component.$$.callbacks[eventType] = []);
+			callbacks.push(callback);
+			return () => {
+				const index = callbacks.indexOf(callback);
+				if (index !== -1) callbacks.splice(index, 1);
+			};
 		}
 
-		events.push([name, callback]);
-		return () => {};
+		if ($on) {
+			destructor = $on(eventType, callback); // The event was bound programmatically.
+		} else {
+			events.push([eventType, callback]); // The event was bound before mount by Svelte.
+		}
+		return () => destructor();
 	};
 
-	return (node: Element) => {
+	return (node: HTMLElement | SVGElement) => {
 		const destructors: (() => void)[] = [];
+		const forwardDestructors: { [k: string]: () => void } = {};
+		const forward = (e: Event) => component.$emit(e.type, e);
 
-		forward = (e) => component.$emit(e.type, e);
+		// This function is responsible for listening and forwarding
+		// all bound events.
 
-		const listen = (name: string, callback: Callback) => {
-			node.addEventListener(name, callback);
-			destructors.push(() => node.removeEventListener(name, callback));
+		const listen = (eventType: string, callback: EventCallback) => {
+			node.addEventListener(eventType, callback);
+			destructors.push(() => node.removeEventListener(eventType, callback));
 		};
 
-		for (let [name, callback] of events) {
-			listen(name, callback);
-			listen(name, forward);
+		for (let [eventType, callback] of events) {
+			listen(eventType, callback);
+			listen(eventType, forward);
 		}
 
 		return {

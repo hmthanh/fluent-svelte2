@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createEventDispatcher } from 'svelte';
+	import {  createEventDispatcher } from 'svelte';
 
 	/** @restProps {button | a} */
 	/** Specifies the visual styling of the button. */
@@ -17,8 +17,7 @@
 
 	// @param {element} - Obtains a bound DOM reference to the button or anchor element
 	export let element: HTMLElement | null = null;
-	// export let restProps;
-
+		
 	const dispatch = createEventDispatcher();
 </script>
 
@@ -30,10 +29,11 @@ A button gives the user a way to trigger an immediate action. Some buttons are s
     <Button>Click me!</Button>
     ```
 -->
+<!--  -->
 <svelte:element
 	this={href && !disabled ? 'a' : 'button'}
-	on:click|preventDefault|stopPropagation={() => dispatch('click')}
 	bind:this={element}
+	on:click|preventDefault|stopPropagation={() => dispatch('click')}
 	role={href && !disabled ? 'button' : undefined}
 	href={href && !disabled ? href : undefined}
 	tabindex="0"
@@ -43,8 +43,6 @@ A button gives the user a way to trigger an immediate action. Some buttons are s
 >
 	<slot />
 </svelte:element>
-
-<!-- on:click|preventDefault|stopPropagation={() => dispatch('click')} -->
 
 <style lang="scss">
 	@use './Button';

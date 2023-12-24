@@ -7,6 +7,7 @@
 	import Box from '@fluentui/svg-icons/icons/box_16_regular.svg?raw';
 	import Book from '@fluentui/svg-icons/icons/book_24_regular.svg?raw';
 	import Open from '@fluentui/svg-icons/icons/open_16_regular.svg?raw';
+	import TextBox from '$lib/TextBox/TextBox.svelte';
 
 	function onClick() {
 		console.log('click');
@@ -19,9 +20,8 @@
 
 <Button variant="standard" on:click={onClick}>standard</Button>
 
+<TextBox placeholder="placeholder" type="password"/>
+
 <Button variant="accent">accent</Button>
 
-<Button variant="standard">standard</Button>
 
-<Button variant="hyperlink">hyperlink</Button>
-<Button variant="hyperlink" disabled>hyperlink</Button>

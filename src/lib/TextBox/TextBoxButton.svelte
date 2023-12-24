@@ -1,33 +1,20 @@
-<!-- <script lang="ts">
-	import { createEventForwarder } from '$lib/internal';
-
-	import { get_current_component } from 'svelte/internal';
-
-	export let type = 'button';
-
-	let className = '';
-	export { className as class };
-
-	export let element: HTMLButtonElement = null;
-
-	const forwardEvents = createEventForwarder(get_current_component());
-</script> -->
 <script lang="ts">
-	import { createEventForwarder } from '$lib/utils.ts';
+	import { createEventDispatcher } from 'svelte';
 
-	export let type = 'button';
 	let className = '';
 	export { className as class };
-	export let element: HTMLButtonElement = null;
 
-	const forwardEvents = createEventForwarder();
+	export let element: HTMLButtonElement | null = null;
+
+	const dispatch = createEventDispatcher();
 </script>
 
+<!-- use:forwardEvents -->
 <button
-	use:forwardEvents
 	bind:this={element}
 	class="text-box-button {className}"
-	{type}
+	on:click={() => dispatch('click')}
+	type="button"
 	{...$$restProps}
 >
 	<slot />
