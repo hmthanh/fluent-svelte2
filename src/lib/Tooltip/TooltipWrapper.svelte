@@ -1,21 +1,21 @@
 <script lang="ts">
-	import { onMount } from "svelte";
-	import { fade } from "svelte/transition";
-	import { getCSSDuration } from "$lib/internal";
+	import { onMount } from 'svelte';
+	import { fade } from 'svelte/transition';
+	import { getCSSDuration } from '$lib/utils.js';
 
-	import TooltipSurface from "./TooltipSurface.svelte";
+	import TooltipSurface from './TooltipSurface.svelte';
 
 	/** Specifies the tooltip's text content. */
-	export let text = "";
+	export let text = '';
 
 	/** Distance of the tooltip from the alignment axis in pixels. */
 	export let offset = 24;
 
 	/** Direction that the tooltip will appear from. */
-	export let placement: "top" | "bottom" | "left" | "right" | "auto" = "auto";
+	export let placement: 'top' | 'bottom' | 'left' | 'right' | 'auto' = 'auto';
 
 	/** Alignment of the tooltip along the placement target's given axis. */
-	export let alignment: "start" | "center" | "end" = "center";
+	export let alignment: 'start' | 'center' | 'end' = 'center';
 
 	/** Allows the tooltip to follow the user's cursor if `placement` is set to `auto`. */
 	export let followCursor = false;
@@ -65,7 +65,7 @@
 
 	function mountTooltip() {
 		tooltipDurationTimeout = setTimeout(() => {
-			if (placement === "auto" && wrapperElement)
+			if (placement === 'auto' && wrapperElement)
 				updateTooltipPositionAuto(wrapperElement.getBoundingClientRect());
 
 			visible = true;
@@ -113,5 +113,5 @@
 </div>
 
 <style lang="scss">
-	@use "./TooltipWrapper";
+  @use "./TooltipWrapper";
 </style>

@@ -1,17 +1,20 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import Button from '$lib/Button/Button.svelte';
 	// import Button from './../lib/Button/Button.svelte';
-	import '$lib/sass/global.scss';
-	import { onMount } from 'svelte';
+	import '$lib/global.scss';
 
 	import Box from '@fluentui/svg-icons/icons/box_16_regular.svg?raw';
 	import Book from '@fluentui/svg-icons/icons/book_24_regular.svg?raw';
 	import Open from '@fluentui/svg-icons/icons/open_16_regular.svg?raw';
 	import TextBox from '$lib/TextBox/TextBox.svelte';
+	import TooltipWrapper from '$lib/Tooltip/TooltipWrapper.svelte';
 
 	function onClick() {
 		console.log('click');
 	}
+
+	let value = 'Default value';
 </script>
 
 <h1>Welcome to your library project</h1>
@@ -19,8 +22,9 @@
 
 <Button variant="standard" on:click={onClick}>standard</Button>
 
-<TextBox placeholder="placeholder" type="password"/>
+<TextBox placeholder="placeholder" type="text"  bind:value />
 
 <Button variant="accent">accent</Button>
 
+<TooltipWrapper />
 

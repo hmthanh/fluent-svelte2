@@ -1,4 +1,4 @@
-/** @type { import("eslint").Linter.FlatConfig } */
+/** @type { import('eslint').Linter.FlatConfig } */
 module.exports = {
 	root: true,
 	extends: [
@@ -27,5 +27,8 @@ module.exports = {
 				parser: '@typescript-eslint/parser'
 			}
 		}
-	]
+	],
+	rules: {
+		'@typescript-eslint/no-unused-vars': 'off'
+	}
 };
