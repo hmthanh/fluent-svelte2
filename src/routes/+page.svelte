@@ -9,6 +9,7 @@
 	import Open from '@fluentui/svg-icons/icons/open_16_regular.svg?raw';
 	import TextBox from '$lib/TextBox/TextBox.svelte';
 	import TooltipWrapper from '$lib/Tooltip/TooltipWrapper.svelte';
+	import AutoSuggestBox from '$lib/AutoSuggestBox/AutoSuggestBox.svelte';
 
 	function onClick() {
 		console.log('click');
@@ -28,3 +29,5 @@
 
 <TooltipWrapper />
 
+
+<AutoSuggestBox/>

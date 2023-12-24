@@ -1,13 +1,12 @@
 <script lang="ts">
-	import { createEventDispatcher } from "svelte";
-	import { uid } from "$lib/utils.ts";
+	import { createEventDispatcher } from 'svelte';
+	import { uid } from '$lib/utils.js';
+	import TextBox from '$lib/TextBox/TextBox.svelte';
+	import ListItem from '$lib/ListItem/ListItem.svelte';
 
-	import TextBox from "../TextBox/TextBox.svelte";
-	import ListItem from "../ListItem/ListItem.svelte";
-
-	/** @extends {"../TextBox/TextBox.svelte"} */
+	/** @extends {'../TextBox/TextBox.svelte'} */
 	/** The input's current value. */
-	export let value: any = "";
+	export let value: never = '';
 
 	/** Array of strings that will be suggested to the user as options. */
 	export let items: string[] = [];
@@ -22,7 +21,7 @@
 	export let matches: string[] = [];
 
 	/** Specifies a custom class name for the component. */
-	let className = "";
+	let className = '';
 	export { className as class };
 
 	/** Obtains a bound DOM reference to the input element. */
@@ -43,16 +42,16 @@
 	export let flyoutElement: HTMLUListElement = null;
 
 	let focused = false;
-	let typedValue = "";
+	let typedValue = '';
 
 	const dispatch = createEventDispatcher();
-	const flyoutId = uid("fds-auto-suggest-flyout-");
+	const flyoutId = uid('fds-auto-suggest-flyout-');
 
 	$: matches = items.filter(item => item.toLowerCase().includes(typedValue.toLowerCase()));
 	$: selection, dispatchSelect();
 
 	function dispatchSelect() {
-		dispatch("select", {
+		dispatch('select', {
 			item: items[selection],
 			index: selection
 		});
@@ -66,21 +65,21 @@
 	function handleKeyDown(event: KeyboardEvent) {
 		const { key } = event;
 		if (open && matches.length > 0) {
-			if (key === "ArrowDown") {
+			if (key === 'ArrowDown') {
 				selection++;
 				if (selection > matches.length - 1) selection = 0;
-			} else if (key === "ArrowUp") {
+			} else if (key === 'ArrowUp') {
 				selection--;
 				if (selection < 0) selection = matches.length - 1;
-			} else if (key === "Enter" || key === "Escape") {
+			} else if (key === 'Enter' || key === 'Escape') {
 				open = false;
 			}
-			if (key === "Enter" || key === "ArrowDown" || key === "ArrowUp") {
+			if (key === 'Enter' || key === 'ArrowDown' || key === 'ArrowUp') {
 				event.preventDefault();
 				value = matches[selection];
-				flyoutElement?.children[selection].scrollIntoView({ block: "nearest" });
+				flyoutElement?.children[selection].scrollIntoView({ block: 'nearest' });
 			}
-		} else if (!open && matches.length > 0 && (key === "ArrowDown" || key === "ArrowUp")) {
+		} else if (!open && matches.length > 0 && (key === 'ArrowDown' || key === 'ArrowUp')) {
 			open = true;
 		}
 	}
@@ -169,5 +168,5 @@
 </TextBox>
 
 <style lang="scss">
-	@use "./AutoSuggestBox";
+  @use "./AutoSuggestBox";
 </style>
