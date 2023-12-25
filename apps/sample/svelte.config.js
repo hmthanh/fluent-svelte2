@@ -7,14 +7,30 @@ import prefixer from "postcss-variables-prefixer";
 import a11yEmoji from "@fec/remark-a11y-emoji";
 import slug from "rehype-slug";
 import github from "remark-github";
-import examples from "mdsvexamples";
-import examplesVite from "mdsvexamples/vite";
+// import examples from "mdsvexamples";
+// import examplesVite from "mdsvexamples/vite";
 
-import vitePluginSveld from "vite-plugin-sveld";
+// import vitePluginSveld from "vite-plugin-sveld";
 
-const { sveld } = vitePluginSveld;
+// const { sveld } = vitePluginSveld;
 
 // import { mdsvex } from "mdsvex";
+
+
+// mdsvex({
+		// 	extensions: [".svx", ".md"],
+		// 	remarkPlugins: [
+		// 		github,
+		// 		a11yEmoji,
+		// 		[
+		// 			examples,
+		// 			{
+		// 				ExampleComponent: "/src/site/lib/Example/Example.svelte"
+		// 			}
+		// 		]
+		// 	],
+		// 	rehypePlugins: [slug]
+		// }),
 
 
 /** @type {import("@sveltejs/kit").Config} */
@@ -22,25 +38,11 @@ const config = {
 	// Consult https://kit.svelte.dev/docs/integrations#preprocessors
 	// for more information about preprocessors
 	preprocess: [vitePreprocess(),
-		mdsvex({
-			extensions: [".svx", ".md"],
-			remarkPlugins: [
-				github,
-				a11yEmoji,
-				[
-					examples,
-					{
-						ExampleComponent: "/src/site/lib/Example/Example.svelte"
-					}
-				]
-			],
-			rehypePlugins: [slug]
-		}),
+		
 		preprocess({
 			postcss: {
 				plugins: [autoprefixer(), cssnano(), prefixer({ prefix: "fds-" })]
 			}
-
 		})],
 
 	kit: {
