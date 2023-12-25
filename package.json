@@ -1,25 +1,20 @@
 {
-  "name": "fluentui-svelte",
   "private": true,
   "scripts": {
-    "build": "turbo build --filter docs",
-    "build:all": "turbo build",
-    "dev": "turbo dev --filter docs",
-    "dev:all": "turbo dev",
-    "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md,svelte}\""
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "format": "prettier --write ."
   },
   "devDependencies": {
+    "eslint": "^8.54.0",
+    "@repo/eslint-config": "workspace:*",
     "prettier": "^3.1.0",
+    "prettier-plugin-svelte": "^3.1.2",
     "turbo": "latest"
   },
+  "packageManager": "pnpm@8.9.0",
   "engines": {
     "node": ">=18"
-  },
-  "pnpm": {
-    "overrides": {
-      "svelte": "^5.0.0-next.1"
-    }
-  },
-  "packageManager": "pnpm@8.11.0"
+  }
 }
