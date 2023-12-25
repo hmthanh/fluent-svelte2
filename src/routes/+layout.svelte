@@ -1,11 +1,34 @@
 <script lang="ts">
 	// import { Navbar } from '$site/lib';
+	import { Navbar } from '$site/lib';
+	import { IconButton, Tooltip } from '$lib';
+	import { dev } from '$app/environment';
+
+	import '$lib/theme.css';
+
+	import News from '@fluentui/svg-icons/icons/news_24_regular.svg?raw';
+	import Wrench from '@fluentui/svg-icons/icons/wrench_24_regular.svg?raw';
+
+	let items = [
+		{
+			name: 'Docs',
+			href: '/docs',
+			icon: News
+		}
+	];
+
+	if (dev) {
+		items.push({
+			name: 'test',
+			href: '/test',
+			icon: Wrench
+		});
+		items = items;
+	}
+	// import { Navbar } from '$site/lib';
 	// import { IconButton, Tooltip } from '$lib';
 
 	// import { dev } from '$app/env';
-	import "../lib/theme.css";
-
-	// console.log("sdsdfsdf");
 
 	// import "../site/styles/pages/home.scss";
 
@@ -47,9 +70,10 @@
 </main>
 
 <style lang="scss">
-	body{
-		background-color: red !important;
-	}
-	// @use 'src/site/styles/global';
+  body {
+    background-color: red !important;
+  }
+
+  // @use 'src/site/styles/global';
 </style>
 
