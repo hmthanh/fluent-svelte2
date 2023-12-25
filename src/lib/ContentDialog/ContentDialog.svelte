@@ -1,20 +1,19 @@
 <script lang="ts">
-	import { createEventDispatcher } from "svelte";
-	import { get_current_component } from "svelte/internal";
-	import { fade, scale } from "svelte/transition";
-	import { circOut } from "svelte/easing";
-	import { uid, focusTrap, getCSSDuration, createEventForwarder } from "$lib/internal.txt";
+	import { createEventDispatcher } from 'svelte';
+	import { fade, scale } from 'svelte/transition';
+	import { circOut } from 'svelte/easing';
 
-	import TextBlock from "../TextBlock/TextBlock.svelte";
+	import TextBlock from '../TextBlock/TextBlock.svelte';
+	import { focusTrap, getCSSDuration, uid } from '$lib/utils.js';
 
 	/** Determines whether the dialog is open or not. */
 	export let open: boolean = false;
 
 	/** Title text displayed as the dialog header. */
-	export let title: string = "";
+	export let title: string = '';
 
 	/** Specifies the visual size of the dialog. */
-	export let size: "standard" | "max" | "min" = "standard";
+	export let size: 'standard' | 'max' | 'min' = 'standard';
 
 	/** Determines whether the dialog can be conventially closed using the escape key. */
 	export let closable = true;
@@ -29,7 +28,7 @@
 	export let trapFocus = true;
 
 	/** Specifies a custom class name for the dialog. */
-	let className = "";
+	let className = '';
 	export { className as class };
 
 	/** Obtains a bound DOM reference to the inner dialog element. */
@@ -44,21 +43,16 @@
 	/** Obtains a bound DOM reference to the dialog's footer element. */
 	export let footerElement: HTMLElement = null;
 
-	const forwardEvents = createEventForwarder(get_current_component(), [
-		"open",
-		"close",
-		"backdropclick",
-		"backdropmousedown"
-	]);
 	const dispatch = createEventDispatcher();
-	const titleId = uid("fds-dialog-title-");
-	const bodyId = uid("fds-dialog-body-");
+	const titleId = uid('fds-dialog-title-');
+	const bodyId = uid('fds-dialog-body-');
 
-	$: if (!open) dispatch("close");
-	$: _focusTrap = trapFocus ? focusTrap : () => {};
+	$: if (!open) dispatch('close');
+	$: _focusTrap = trapFocus ? focusTrap : () => {
+	};
 
 	function mountDialog(node: HTMLDivElement) {
-		dispatch("open");
+		dispatch('open');
 		if (append) append.appendChild(node);
 		node.focus();
 	}
@@ -68,7 +62,7 @@
 	}
 
 	function handleEscapeKey({ key }: KeyboardEvent) {
-		if (key === "Escape" && open && closable) close();
+		if (key === 'Escape' && open && closable) close();
 	}
 </script>
 
@@ -86,7 +80,6 @@
 		bind:this={backdropElement}
 	>
 		<div
-			use:forwardEvents
 			class="content-dialog size-{size} {className}"
 			role="dialog"
 			aria-modal="true"
@@ -119,5 +112,5 @@
 {/if}
 
 <style lang="scss">
-	@use "./ContentDialog";
+  @use "./ContentDialog";
 </style>

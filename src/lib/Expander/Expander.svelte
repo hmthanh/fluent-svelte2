@@ -1,22 +1,20 @@
 <script lang="ts">
 	// TODO: progressively enhance this
 
-	import { createEventDispatcher } from "svelte";
-	import { get_current_component } from "svelte/internal";
-	import { createEventForwarder, uid } from "$lib/internal.txt";
+	import { createEventDispatcher } from 'svelte';
+	import { uid } from '$lib/utils.js';
 
 	/** Determines whether the expander is expanded (open) or not. */
 	export let expanded = false;
 
 	/** Determines the direction that the expander will extend to. */
-	export let direction: "down" | "up" = "down";
+	export let direction: 'down' | 'up' = 'down';
 
-	// svelte-ignore unused-export-let
 	/** Determines the expander header's semantic HTML heading tag (h1-h6). */
 	export let headingLevel: 1 | 2 | 3 | 4 | 5 | 6 = 3;
 
 	/** Specifies a custom class name for the expander. */
-	let className = "";
+	let className = '';
 	export { className as class };
 
 	/** Obtains a bound DOM reference to the expander's container element. */
@@ -29,18 +27,17 @@
 	export let contentElement: HTMLDivElement = null;
 
 	const dispatch = createEventDispatcher();
-	const forwardEvents = createEventForwarder(get_current_component(), ["expand", "collapse"]);
-	const headerId = uid("fds-expander-header-");
-	const contentId = uid("fds-expander-content-");
+	const headerId = uid('fds-expander-header-');
+	const contentId = uid('fds-expander-content-');
 
 	$: if (expanded) {
-		dispatch("expand");
+		dispatch('expand');
 	} else {
-		dispatch("collapse");
+		dispatch('collapse');
 	}
 
 	function handleKeydown({ key }) {
-		if (key === "Enter" || key === " ") {
+		if (key === 'Enter' || key === ' ') {
 			event.preventDefault();
 			expanded = !expanded;
 		}
@@ -61,7 +58,6 @@ Expanders are controls that display a header and a collapsable content area. The
     ```
 -->
 <div
-	use:forwardEvents
 	class="expander direction-{direction} {className}"
 	role="region"
 	class:expanded
@@ -90,7 +86,7 @@ Expanders are controls that display a header and a collapsable content area. The
 			</span>
 			<button
 				class="expander-chevron"
-                type="button"
+				type="button"
 				tabindex="-1"
 				id={contentId}
 				aria-labelledby={headerId}
@@ -119,5 +115,5 @@ Expanders are controls that display a header and a collapsable content area. The
 </div>
 
 <style lang="scss">
-	@use "./Expander";
+  @use "./Expander";
 </style>

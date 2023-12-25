@@ -14,6 +14,12 @@
 	import CalendarDatePicker from '$lib/CalendarDatePicker/CalendarDatePicker.svelte';
 	import Checkbox from '$lib/Checkbox/Checkbox.svelte';
 	import ComboBox from '$lib/ComboBox/ComboBox.svelte';
+	import ContentDialog from '$lib/ContentDialog/ContentDialog.svelte';
+	import ContextMenu from '$lib/ContextMenu/ContextMenu.svelte';
+	import Expander from '$lib/Expander/Expander.svelte';
+	import FlyoutSurface from '$lib/Flyout/FlyoutSurface.svelte';
+	import IconButton from '$lib/IconButton/IconButton.svelte';
+	import InfoBadge from '$lib/InfoBadge/InfoBadge.svelte';
 
 	let dateNow = new Date();
 
@@ -43,5 +49,57 @@
 <CalendarDatePicker value={dateNow} />
 
 <Checkbox />
+<div>
+	<ComboBox />
+</div>
 
-<ComboBox />
+<div>
+	<ContentDialog />
+</div>
+
+<div>
+	<ContextMenu />
+</div>
+
+<div>
+	<Expander />
+</div>
+
+<div>
+	<FlyoutSurface />
+</div>
+
+<div>
+	<IconButton />
+</div>
+
+<div>
+	<InfoBadge />
+</div>
+
+<div>
+	<ContentDialog />
+</div>
+
+<div>
+	<ContentDialog />
+</div>
+
+
+<div>
+	<ContentDialog />
+</div>
+
+
+<div>
+	<ContentDialog />
+</div>
+
+
+<div>
+	<ContentDialog />
+</div>
+
+<style>
+
+</style>

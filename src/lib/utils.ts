@@ -127,3 +127,59 @@ export function externalMouseEvents(
 // 		};
 // 	};
 // }
+
+interface ArrowNavigationOptions {
+	preventTab?: boolean;
+	stopPropagation?: boolean;
+}
+
+// Controls the focus of a list of elements by using the arrow keys
+export function arrowNavigation(
+	node: HTMLElement,
+	options: ArrowNavigationOptions = { preventTab: false, stopPropagation: false }
+) {
+	const handleKeyDown = (event: KeyboardEvent) => {
+		const { key } = event;
+		const { activeElement } = document;
+
+		let tabOrder = <HTMLElement[]>tabbable(node);
+		// if (directChildren) tabOrder = tabOrder.filter(child => child.parentElement === node);
+		const activeIndex = tabOrder.indexOf(document.activeElement as HTMLElement);
+
+		if (tabOrder.length < 0) return;
+		if (
+			key === 'ArrowUp' ||
+			key === 'ArrowDown' ||
+			key === 'Home' ||
+			key === 'End' ||
+			(key === 'Tab' && options.preventTab)
+		) {
+			event.preventDefault();
+			if (options.stopPropagation) event.stopPropagation();
+		}
+
+		if (key === 'ArrowUp') {
+			if (tabOrder[0] === activeElement) {
+				tabOrder[tabOrder.length - 1].focus();
+			} else if (tabOrder.includes(<HTMLElement>activeElement)) {
+				tabOrder[activeIndex - 1].focus();
+			}
+		} else if (key === 'ArrowDown') {
+			if (tabOrder[tabOrder.length - 1] === activeElement) {
+				tabOrder[0].focus();
+			} else if (tabOrder.includes(<HTMLElement>activeElement)) {
+				tabOrder[activeIndex + 1].focus();
+			}
+		} else if (key === 'Home') {
+			tabOrder[0].focus();
+		} else if (key === 'End') {
+			tabOrder[tabOrder.length - 1].focus();
+		}
+	};
+
+	node.addEventListener('keydown', handleKeyDown);
+
+	return {
+		destroy: () => node.removeEventListener('keydown', handleKeyDown)
+	};
+}
