@@ -270,6 +270,15 @@ importers:
         specifier: ^5.0.0-next.26
         version: 5.0.0-next.26
 
+  packages/site:
+    devDependencies:
+      '@repo/eslint-config':
+        specifier: workspace:*
+        version: link:../config-eslint
+      svelte:
+        specifier: ^5.0.0-next.26
+        version: 5.0.0-next.26
+
 packages:
 
   /@aashutoshrathi/word-wrap@1.2.6:
