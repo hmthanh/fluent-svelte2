@@ -119,5 +119,5 @@
 </main>
 
 <style global lang="scss">
-  @use "src/site/styles/pages/docs";
+  @use "$site/styles/pages/docs.scss";
 </style>
