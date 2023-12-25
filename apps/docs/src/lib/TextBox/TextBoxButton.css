@@ -1,0 +1,36 @@
+.text-box-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  border: none;
+  box-sizing: border-box;
+  min-inline-size: 26px;
+  min-block-size: 22px;
+  padding: 3px 5px;
+  color: var(--text-secondary);
+  border-radius: var(--control-corner-radius);
+  background-color: var(--subtle-fill-transparent);
+}
+.text-box-button:focus-visible {
+  box-shadow: var(--focus-stroke);
+}
+.text-box-button:hover {
+  background-color: var(--subtle-fill-secondary);
+}
+.text-box-button:active {
+  color: var(--text-tertiary);
+  background-color: var(--subtle-fill-tertiary);
+}
+.text-box-button:disabled {
+  background-color: var(--subtle-fill-tertiary);
+  color: var(--text-disabled);
+}
+.text-box-button :global(svg) {
+  pointer-events: none;
+  min-inline-size: 12px;
+  min-block-size: 12px;
+  fill: currentColor;
+}
+
+/*# sourceMappingURL=TextBoxButton.css.map */
