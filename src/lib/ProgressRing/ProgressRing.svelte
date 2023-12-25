@@ -1,7 +1,5 @@
 <script lang="ts">
-	// import { createEventForwarder } from "$lib/internal.txt";
 	import { createEventDispatcher } from 'svelte';
-	// import { get_current_component } from "svelte/internal";
 
 	/** Determines a completion amount in percentage (0-100). If no value or an invalid value is provided, the ring will be indeterminate. */
 	export let value: number = undefined;

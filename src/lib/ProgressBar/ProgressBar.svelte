@@ -6,7 +6,7 @@
 	// export let status: "running" | "paused" | "error" = "running";
 
 	/** Specifies a custom class name for the bar. */
-	let className = "";
+	let className = '';
 	export { className as class };
 
 	/** Obtains a bound DOM reference to the bar's SVG element. */
@@ -56,5 +56,5 @@
 </svg>
 
 <style lang="scss">
-	@use "./ProgressBar";
+  @use "./ProgressBar";
 </style>

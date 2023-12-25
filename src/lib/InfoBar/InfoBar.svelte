@@ -1,9 +1,7 @@
 <script lang="ts">
-	import { createEventDispatcher } from "svelte";
-	import { get_current_component } from "svelte/internal";
-	import { createEventForwarder } from "$lib/internal.txt";
+	import { createEventDispatcher } from 'svelte';
 
-	import InfoBadge from "../InfoBadge/InfoBadge.svelte";
+	import InfoBadge from '../InfoBadge/InfoBadge.svelte';
 
 	/** Determines whether the bar is open (rendered). */
 	export let open = true;
@@ -12,17 +10,17 @@
 	export let closable = true;
 
 	/** Indicates the severity color of the bar. */
-	export let severity: "information" | "success" | "caution" | "critical" | "attention" =
-		"information";
+	export let severity: 'information' | 'success' | 'caution' | 'critical' | 'attention' =
+		'information';
 
 	/** Title of the Infobar. */
-	export let title = "";
+	export let title = '';
 
 	/** Description text shown next to or below the title. */
-	export let message = "";
+	export let message = '';
 
 	/** Specifies a custom class name for the bar. */
-	let className = "";
+	let className = '';
 	export { className as class };
 
 	/** Obtains a bound DOM reference to the bar's container element. */
@@ -44,14 +42,13 @@
 	let clientHeight = 0;
 
 	const dispatch = createEventDispatcher();
-	const forwardEvents = createEventForwarder(get_current_component());
 
 	$: actionWrapped = clientHeight && actionElement?.offsetTop > 0;
 	$: messageWrapped = clientHeight && messageElement?.offsetTop > titleElement?.offsetTop;
 	$: if (open) {
-		dispatch("open");
+		dispatch('open');
 	} else {
-		dispatch("close");
+		dispatch('close');
 	}
 </script>
 
@@ -67,7 +64,6 @@ The InfoBar control is for displaying app-wide status messages to users that are
 -->
 {#if open}
 	<div
-		use:forwardEvents
 		bind:this={element}
 		bind:clientHeight
 		class="info-bar severity-{severity} {className}"
@@ -129,5 +125,5 @@ The InfoBar control is for displaying app-wide status messages to users that are
 {/if}
 
 <style lang="scss">
-	@use "./InfoBar";
+  @use "./InfoBar";
 </style>

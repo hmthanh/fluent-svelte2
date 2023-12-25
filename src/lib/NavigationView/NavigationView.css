@@ -1,3 +1,43 @@
-
+.navigation-view {
+  user-select: none;
+  font-family: var(--font-family-text);
+  font-size: var(--body-font-size);
+  font-weight: normal;
+  line-height: 20px;
+  display: flex;
+  inline-size: 100%;
+  block-size: 100%;
+}
+.navigation-view.variant--default .navigation-view-pane {
+  inline-size: 48px;
+}
+.navigation-view.variant--default .navigation-view-pane.expanded {
+  inline-size: 320px;
+}
+.navigation-view-pane {
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+  flex: 0 0 auto;
+  block-size: 100%;
+}
+.navigation-view-pane-header {
+  display: block;
+  flex: 0 0 auto;
+  padding-block-start: 4px;
+}
+.navigation-view-page {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  border-start-start-radius: var(--overlay-corner-radius);
+  background-clip: padding-box;
+  background-color: var(--layer-background-default);
+  border: 1px solid var(--card-stroke-default);
+  border-block-end: none;
+  border-inline-end: none;
+  padding-inline: 56px;
+  padding-block: 44px;
+}
 
 /*# sourceMappingURL=NavigationView.css.map */

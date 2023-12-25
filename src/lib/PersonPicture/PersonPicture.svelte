@@ -9,7 +9,7 @@
 	export let alt: string = undefined;
 
 	/** Specifies a custom class name for the inner picture. */
-	let className = "";
+	let className = '';
 	export { className as class };
 
 	/** Obtains a bound DOM reference to the inner picture element. */
@@ -58,5 +58,5 @@
 </div>
 
 <style lang="scss">
-	@use "./PersonPicture";
+  @use "./PersonPicture";
 </style>

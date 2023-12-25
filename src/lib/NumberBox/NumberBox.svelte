@@ -1,13 +1,14 @@
 <script lang="ts">
-	import TextBox from "../TextBox/TextBox.svelte";
-	import TextBoxButton from "../TextBox/TextBoxButton.svelte";
 
-	/** @extends {"../TextBox/TextBox.svelte"} */
+	/** @extends {'../TextBox/TextBox.svelte'} */
+	import { TextBox } from '$lib';
+	import TextBoxButton from '$lib/TextBox/TextBoxButton.svelte';
+
 	/** Determines whether the spinner buttons will be placed in an inline layout. */
 	export let inline = false;
 
 	/** The input's current value. */
-	export let value: any = "";
+	export let value: any = '';
 
 	/** Minimum value for the input. */
 	export let min: number = undefined;
@@ -22,7 +23,7 @@
 	export let disabled = false;
 
 	/** Specifies a custom class name for the NumberBox. */
-	let className = "";
+	let className = '';
 	export { className as class };
 
 	/** Obtains a bound DOM reference to the input element. */
@@ -80,7 +81,7 @@
 	}
 
 	function handleTabKey({ key }) {
-		if (key === "Tab") spinnerFlyoutOpen = false;
+		if (key === 'Tab') spinnerFlyoutOpen = false;
 	}
 
 	export function stepUp() {
@@ -263,5 +264,5 @@
 </TextBox>
 
 <style lang="scss">
-	@use "./NumberBox";
+  @use "./NumberBox";
 </style>

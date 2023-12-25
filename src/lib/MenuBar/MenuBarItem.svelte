@@ -1,8 +1,6 @@
 <script lang="ts">
-	import type { SvelteComponentTyped } from 'svelte';
-
+	// import type { SvelteComponentTyped } from 'svelte';
 	import { currentMenu } from './flyoutState';
-
 	import { tabbable } from 'tabbable';
 	import { createEventDispatcher, getContext, setContext } from 'svelte';
 	import { arrowNavigation, externalMouseEvents, uid } from '$lib/utils.js';
@@ -29,13 +27,8 @@
 	/** Obtains a bound DOM reference to the inner menu element. */
 	export let menuElement: HTMLUListElement = null;
 
-	let menu: SvelteComponentTyped;
+	let menu: SvelteComponent;
 
-	const forwardEvents = createEventForwarder(get_current_component(), [
-		'open',
-		'close',
-		'select'
-	]);
 	const dispatch = createEventDispatcher();
 	const menuId = uid('fds-menu-flyout-anchor-');
 	const handleSideNavigation =
@@ -98,7 +91,6 @@
 <svelte:window on:keydown={handleEscapeKey} />
 
 <li
-	use:forwardEvents
 	class="menu-bar-item {className}"
 	class:disabled
 	role="menuitem"

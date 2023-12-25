@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":[],"names":[],"mappings":"","file":"NavigationView.css"}
+{"version":3,"sourceRoot":"","sources":["NavigationView.scss","../_mixins.scss"],"names":[],"mappings":"AAEA;EC0FC;EAGC;EACA;EACA;EAGD;EDhGC;EACA;EACA;;AAII;EACE;;AAEA;EACE;;AAMR;ECAA;EAQC;EDNC;EACA;EACA;;AAEA;EACE;EACA;EACA;;AAIJ;ECbA;EAQC;EDOC;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA","file":"NavigationView.css"}

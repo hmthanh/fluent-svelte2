@@ -20,6 +20,17 @@
 	import FlyoutSurface from '$lib/Flyout/FlyoutSurface.svelte';
 	import IconButton from '$lib/IconButton/IconButton.svelte';
 	import InfoBadge from '$lib/InfoBadge/InfoBadge.svelte';
+	import InfoBar from '$lib/InfoBar/InfoBar.svelte';
+	import { ListItem } from '$lib';
+	import MenuBar from '$lib/MenuBar/MenuBar.svelte';
+	import MenuBarItem from '$lib/MenuBar/MenuBarItem.svelte';
+	import MenuFlyoutSurface from '$lib/MenuFlyout/MenuFlyoutSurface.svelte';
+	import MenuFlyoutWrapper from '$lib/MenuFlyout/MenuFlyoutWrapper.svelte';
+	import NavigationView from '$lib/NavigationView/NavigationView.svelte';
+	import NumberBox from '$lib/NumberBox/NumberBox.svelte';
+	import PersonPicture from '$lib/PersonPicture/PersonPicture.svelte';
+	import ProgressBar from '$lib/ProgressBar/ProgressBar.svelte';
+	import ProgressRing from '$lib/ProgressRing/ProgressRing.svelte';
 
 	let dateNow = new Date();
 
@@ -78,6 +89,72 @@
 </div>
 
 <div>
+	<InfoBar />
+</div>
+
+<div>
+	<ListItem />
+</div>
+
+<div>
+	<MenuBar />
+</div>
+
+<div>
+	<MenuBarItem />
+</div>
+
+<div>
+	<MenuFlyoutSurface />
+</div>
+
+<div>
+	<MenuFlyoutWrapper />
+</div>
+
+<div>
+	<NavigationView />
+</div>
+
+<div>
+	<NumberBox />
+</div>
+
+<div>
+	<PersonPicture />
+</div>
+
+<div>
+	<ProgressBar />
+</div>
+
+
+<div>
+	<ProgressRing />
+</div>
+
+
+<div>
+	<ContentDialog />
+</div>
+
+
+<div>
+	<ContentDialog />
+</div>
+
+
+<div>
+	<ContentDialog />
+</div>
+
+
+<div>
+	<ContentDialog />
+</div>
+
+
+<div>
 	<ContentDialog />
 </div>
 
@@ -85,6 +162,19 @@
 	<ContentDialog />
 </div>
 
+
+<div>
+	<ContentDialog />
+</div>
+
+<div>
+	<ContentDialog />
+</div>
+
+
+<div>
+	<ContentDialog />
+</div>
 
 <div>
 	<ContentDialog />

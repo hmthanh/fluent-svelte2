@@ -1,6 +1,6 @@
 <script lang="ts">
 	/** Specifies a custom class name for the surface. */
-	let className = "";
+	let className = '';
 	export { className as class };
 
 	/** Obtains a bound DOM reference to the surface element. */
@@ -24,5 +24,5 @@
 </div>
 
 <style lang="scss">
-	@use "./MenuFlyoutSurface";
+  @use "./MenuFlyoutSurface";
 </style>

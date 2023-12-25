@@ -1,17 +1,14 @@
 <script lang="ts">
-	import type { SvelteComponentTyped } from "svelte";
+	import type { SvelteComponentTyped } from 'svelte';
 
-	import { createEventDispatcher, getContext } from "svelte";
-	import { get_current_component } from "svelte/internal";
-
-	import { arrowNavigation, uid, createEventForwarder } from "$lib/internal.txt";
-	import { tabbable } from "tabbable";
-
-	import MenuFlyoutSurface from "../MenuFlyout/MenuFlyoutSurface.svelte";
-	import TextBlock from "../TextBlock/TextBlock.svelte";
+	import { createEventDispatcher, getContext } from 'svelte';
+	import { tabbable } from 'tabbable';
+	import { uid , arrowNavigation} from '$lib/utils.js';
+	import { TextBlock } from '$lib';
+	import MenuFlyoutSurface from '$lib/MenuFlyout/MenuFlyoutSurface.svelte';
 
 	/** Specifies an input type for the item. */
-	export let variant: "standard" | "radio" | "toggle" = "standard";
+	export let variant: 'standard' | 'radio' | 'toggle' = 'standard';
 
 	/** Marks the item as having a cascading submenu attached to it, and makes the `flyout` slot available. */
 	export let cascading = false;
@@ -44,7 +41,7 @@
 	export let __depth = false;
 
 	/** Specifies a custom class name for the item. */
-	let className = "";
+	let className = '';
 	export { className as class };
 
 	/** Obtains a bound DOM reference to the item's main container. */
@@ -62,10 +59,9 @@
 	/** Obtains a bound DOM reference to the inner submenumenu element, which is present if the item is cascading and the submenu is visible. */
 	export let subMenuElement: HTMLUListElement = null;
 
-	const forwardEvents = createEventForwarder(get_current_component());
 	const dispatch = createEventDispatcher();
-	const closeFlyout = getContext<(event: Event) => void>("closeFlyout");
-	const menuId = uid("fds-menu-flyout-submenu-");
+	const closeFlyout = getContext<(event: Event) => void>('closeFlyout');
+	const menuId = uid('fds-menu-flyout-submenu-');
 
 	let menu: SvelteComponentTyped = null;
 	let subMenuQueue = {
@@ -73,7 +69,7 @@
 		close: false
 	};
 
-	$: dispatch(open ? "open" : "close");
+	$: dispatch(open ? 'open' : 'close');
 	$: if (open && menu && tabbable(subMenuElement).length > 0) tabbable(subMenuElement)[0].focus();
 
 	function close(event) {
@@ -84,15 +80,15 @@
 
 	function handleKeyDown(event) {
 		const { key, target } = event;
-		if (key === "Enter" || key === " ") {
+		if (key === 'Enter' || key === ' ') {
 			event.preventDefault();
 			target.click();
 		}
 		if (cascading) {
-			if (key === "ArrowRight") {
+			if (key === 'ArrowRight') {
 				event.stopPropagation();
 				open = true;
-			} else if (open && key === "ArrowLeft") {
+			} else if (open && key === 'ArrowLeft') {
 				event.stopPropagation();
 				open = false;
 				element.focus();
@@ -117,6 +113,7 @@
 	}
 </script>
 
+<!--		aria-selected={selected || checked}-->
 {#if variant === "standard" || __depth}
 	<li
 		tabindex={disabled ? -1 : 0}
@@ -124,14 +121,12 @@
 		aria-expanded={$$slots.flyout && !disabled && open}
 		aria-haspopup={$$slots.flyout && !disabled && open}
 		aria-controls={$$slots.flyout && !disabled && menuId}
-		aria-selected={selected || checked}
 		class="menu-flyout-item type-{variant} {className}"
 		class:cascading
 		class:selected
 		class:checked
 		class:disabled
 		class:indented
-		use:forwardEvents
 		bind:this={element}
 		on:click={close}
 		on:mouseenter={handleMouseEnter}
@@ -234,5 +229,5 @@
 {/if}
 
 <style lang="scss">
-	@use "./MenuFlyoutItem";
+  @use "./MenuFlyoutItem";
 </style>

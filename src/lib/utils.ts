@@ -33,7 +33,8 @@ export function focusTrap(node: HTMLElement, options?: FocusTrapOptions) {
 	};
 }
 
-interface CCC extends MouseEvent {}
+interface CCC extends MouseEvent {
+}
 
 interface ExternalMouseEventOptions {
 	type?: string;

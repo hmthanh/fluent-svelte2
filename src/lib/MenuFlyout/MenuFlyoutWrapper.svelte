@@ -1,12 +1,10 @@
 <script lang="ts">
-	import type { SvelteComponentTyped } from "svelte";
+	import type { SvelteComponentTyped } from 'svelte';
 
-	import { tabbable } from "tabbable";
-
-	import { createEventDispatcher, setContext } from "svelte";
-	import { arrowNavigation, uid } from "$lib/internal.txt";
-
-	import MenuFlyoutSurface from "./MenuFlyoutSurface.svelte";
+	import { tabbable } from 'tabbable';
+	import { uid, arrowNavigation } from '$lib/utils.js';
+	import { createEventDispatcher, setContext } from 'svelte';
+	import MenuFlyoutSurface from '$lib/MenuFlyout/MenuFlyoutSurface.svelte';
 
 	/** Determines the flyout's visibility. */
 	export let open = false;
@@ -18,16 +16,16 @@
 	export let closeOnSelect = true;
 
 	/** Direction that the flyout will be opened from. */
-	export let placement: "top" | "bottom" | "left" | "right" = "top";
+	export let placement: 'top' | 'bottom' | 'left' | 'right' = 'top';
 
 	/** Alignment of the menu along the clickable target's given axis. */
-	export let alignment: "start" | "center" | "end" = "center";
+	export let alignment: 'start' | 'center' | 'end' = 'center';
 
 	/** Distance of the flyout from the control button in pixels. */
 	export let offset = 4;
 
 	/** Specifies a custom class name for the flyout. */
-	let className = "";
+	let className = '';
 	export { className as class };
 
 	/** Obtains a bound DOM reference to the content wrapper element. */
@@ -43,17 +41,17 @@
 	export let backdropElement: HTMLDivElement = null;
 
 	const dispatch = createEventDispatcher();
-	const menuId = uid("fds-menu-flyout-anchor-");
+	const menuId = uid('fds-menu-flyout-anchor-');
 
 	let menu: SvelteComponentTyped = null;
 	let previousFocus: Element = null;
 
-	$: dispatch(open ? "open" : "close");
+	$: dispatch(open ? 'open' : 'close');
 
 	$: if (menu && tabbable(menuElement).length > 0) tabbable(menuElement)[0].focus();
 
 	function handleEscapeKey({ key }: KeyboardEvent) {
-		if (key === "Escape" && closable) open = false;
+		if (key === 'Escape' && closable) open = false;
 		(<HTMLElement>previousFocus)?.focus();
 	}
 
@@ -66,8 +64,8 @@
 		if (closable) open = false;
 	}
 
-	setContext("closeFlyout", event => {
-		dispatch("select");
+	setContext('closeFlyout', event => {
+		dispatch('select');
 		if (closeOnSelect && closable) {
 			event.stopPropagation();
 			open = false;
@@ -110,5 +108,5 @@
 </div>
 
 <style lang="scss">
-	@use "./MenuFlyoutWrapper";
+  @use "./MenuFlyoutWrapper";
 </style>
