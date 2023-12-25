@@ -8,6 +8,9 @@ export default defineConfig({
 	test: {
 		include: ["src/**/*.{test,spec}.{js,ts}"]
 	},
+	optimizeDeps: {
+		include: ['@repo/ui'],
+	  },
 	css: {
 		preprocessorOptions: {
 			scss: {

@@ -7,7 +7,8 @@
 	import Box from '@fluentui/svg-icons/icons/box_16_regular.svg?raw';
 	import Book from '@fluentui/svg-icons/icons/book_24_regular.svg?raw';
 	import Open from '@fluentui/svg-icons/icons/open_16_regular.svg?raw';
-	import { CopyBox, HeroCard, Metadata, PageSection } from '$site/lib';
+	// import { CopyBox, HeroCard, Metadata, PageSection } from '@repos/site';
+	
 
 	let exampleCount = 0;
 
@@ -25,7 +26,7 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>`;
 </script>
 
-<Metadata
+<!-- <Metadata
 	title="Fluent Svelte"
 	description="A faithful implementation of Microsoft's Fluent Design System in Svelte."
 />
@@ -118,8 +119,10 @@
 			</div>
 		</HeroCard>
 	</div>
-</PageSection>
+</PageSection> -->
+
+<div></div>
 
 <style lang="scss">
-  @use "$site/styles/pages/home";
+//   @use "styles/pages/home";
 </style>

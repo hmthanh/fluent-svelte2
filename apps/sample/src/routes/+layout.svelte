@@ -1,30 +1,31 @@
 <script lang="ts">
 	// import { Navbar } from '$site/lib';
-	import { Navbar } from '$site/lib';
-	import { IconButton, Tooltip } from '$lib';
-	import { dev } from '$app/environment';
+	// import Site from '@repo/site';
+	// { Navbar }
+	// import { IconButton, Tooltip } from '$lib';
+	// import { dev } from '$app/environment';
 
-	import '$lib/theme.css';
+	// import '$lib/theme.css';
 
-	import News from '@fluentui/svg-icons/icons/news_24_regular.svg?raw';
-	import Wrench from '@fluentui/svg-icons/icons/wrench_24_regular.svg?raw';
+	// import News from '@fluentui/svg-icons/icons/news_24_regular.svg?raw';
+	// import Wrench from '@fluentui/svg-icons/icons/wrench_24_regular.svg?raw';
 
-	let items = [
-		{
-			name: 'Docs',
-			href: '/docs',
-			icon: News
-		}
-	];
+	// let items = [
+	// 	{
+	// 		name: 'Docs',
+	// 		href: '/docs',
+	// 		icon: News
+	// 	}
+	// ];
 
-	if (dev) {
-		items.push({
-			name: 'test',
-			href: '/test',
-			icon: Wrench
-		});
-		items = items;
-	}
+	// if (dev) {
+	// 	items.push({
+	// 		name: 'test',
+	// 		href: '/test',
+	// 		icon: Wrench
+	// 	});
+	// 	items = items;
+	// }
 	// import { Navbar } from '$site/lib';
 	// import { IconButton, Tooltip } from '$lib';
 
@@ -65,7 +66,7 @@
 		</IconButton>
 	</Tooltip>
 </Navbar> -->
-<Navbar {items}>
+<!-- <Navbar {items}>
 	<Tooltip slot="buttons" placement="left" offset={8} text="View GitHub">
 		<IconButton href="https://github.com/tropix126/fluent-svelte/" rel="noreferrer noopener">
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
@@ -76,11 +77,12 @@
 			</svg>
 		</IconButton>
 	</Tooltip>
-</Navbar>
+</Navbar> -->
 <main>
+	Hello
 	<slot />
 </main>
 
-<style lang="scss">
+<!-- <style lang="scss">
 	@use "$site/styles/global.scss";
-</style>
+</style> -->

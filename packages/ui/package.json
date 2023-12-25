@@ -1,5 +1,5 @@
 {
-  "name": "@repo/fluentui-svelte",
+  "name": "@repo/ui",
   "version": "0.0.0",
   "type": "module",
   "module": "index.ts",

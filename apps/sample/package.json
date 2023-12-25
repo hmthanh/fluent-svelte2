@@ -30,6 +30,7 @@
 		"svelte": "^5.0.0-next.26"
 	},
 	"dependencies": {
+		"@repo/site":"workspace:*",
 		"focus-trap": "^7.5.4",
 		"tabbable": "^6.2.0"
 	},

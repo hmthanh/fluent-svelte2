@@ -1,8 +1,8 @@
 {
-  "name": "docs",
+	"name": "docs",
 	"version": "0.0.1",
 	"private": true,
-  "type": "module",
+	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
@@ -18,14 +18,14 @@
 		"@repo/ui": "workspace:*"
 	},
 	"devDependencies": {
+		"@repo/eslint-config": "workspace:*",
 		"@playwright/test": "^1.40.1",
 		"@sveltejs/adapter-auto": "^3.0.1",
 		"@sveltejs/kit": "^2.0.6",
-		"@sveltejs/vite-plugin-svelte":"^3.0.1",
+		"@sveltejs/vite-plugin-svelte": "^3.0.1",
 		"@typescript-eslint/eslint-plugin": "^6.15.0",
 		"@typescript-eslint/parser": "^6.15.0",
 		"eslint": "^8.56.0",
-		"@repo/eslint-config": "workspace:*",
 		"prettier": "^3.1.1",
 		"prettier-plugin-svelte": "^3.1.2",
 		"svelte": "^5.0.0-next.26",

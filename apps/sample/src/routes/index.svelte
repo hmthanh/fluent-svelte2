@@ -24,12 +24,12 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>`;
 </script>
 
-<Metadata
+<!-- <Metadata
 	title="Fluent Svelte"
 	description="A faithful implementation of Microsoft's Fluent Design System in Svelte."
-/>
+/> -->
 
-<PageSection id="hero-section">
+<!-- <PageSection id="hero-section">
 	<div class="hero-contents">
 		<h1>Fluent Svelte</h1>
 		<p>A faithful implementation of Microsoft's Fluent Design System in Svelte.</p>
@@ -117,7 +117,7 @@
 			</div>
 		</HeroCard>
 	</div>
-</PageSection>
+</PageSection> -->
 
 <style lang="scss">
   @use "src/site/styles/pages/home";
