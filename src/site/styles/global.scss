@@ -1,5 +1,5 @@
-@use 'src/lib/mixins' as *;
-@use './mixins' as *;
+@use '../../lib/mixins.scss' as *;
+@use './_mixins.scss' as *;
 
 :global {
   *,

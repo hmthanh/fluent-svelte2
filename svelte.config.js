@@ -1,4 +1,3 @@
-import path from 'path';
 import adapter from '@sveltejs/adapter-auto';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import preprocess from 'svelte-preprocess';
@@ -11,9 +10,9 @@ import github from 'remark-github';
 import examples from 'mdsvexamples';
 import examplesVite from 'mdsvexamples/vite';
 
-import sveld from "vite-plugin-sveld";
+import sveld from 'vite-plugin-sveld';
 
-import { mdsvex } from "mdsvex";
+import { mdsvex } from 'mdsvex';
 
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -51,19 +50,18 @@ const config = {
 			'$site': './src/site',
 			'$site/*': './src/site/*',
 			'$site/lib': './src/site/lib',
-			'$site/lib/*': './src/site/lib/*'
-		},
-		vite: {
-			plugins: [sveld(), examplesVite],
-			resolve: {
-				extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json', 'svg'],
-				alias: {
-					$site: path.resolve('src/site'),
-					'fluent-svelte': path.resolve('src/lib')
-				}
-			}
+			'$site/lib/*': './src/site/lib/*',
+			'fluent-svelte': './src/lib'
 		}
 	}
 };
 
 export default config;
+
+
+// vite: {
+// 			plugins: [sveld(), examplesVite],
+// 			resolve: {
+// 				extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json', 'svg']
+// 			}
+// 		}

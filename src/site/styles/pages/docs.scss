@@ -1,5 +1,5 @@
-@use '../markdown';
-@use '../_mixins' as *;
+@use '../markdown.scss';
+@use '../_mixins.scss' as *;
 
 .docs- {
   &container {
