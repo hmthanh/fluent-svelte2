@@ -3,8 +3,7 @@
 	import { focusTrap, getCSSDuration, uid } from '$lib/utils.js';
 	import { fade } from 'svelte/transition';
 	import { circOut } from 'svelte/easing';
-
-	import FlyoutSurface from './FlyoutSurface.svelte';
+	import FlyoutSurface from '$lib/Flyout/FlyoutSurface.svelte';
 
 	/** Determines the flyout's visibility. */
 	export let open = false;

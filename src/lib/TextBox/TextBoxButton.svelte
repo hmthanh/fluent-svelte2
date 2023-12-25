@@ -21,5 +21,5 @@
 </button>
 
 <style lang="scss">
-	@use './TextBoxButton';
+  @use './TextBoxButton';
 </style>

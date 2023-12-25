@@ -1,7 +1,6 @@
 <script lang="ts">
-	import TextBoxButton from './TextBoxButton.svelte';
 	import { createEventDispatcher } from 'svelte';
-	// import { externalMouseEvents } from '$lib/utils';
+	import TextBoxButton from '$lib/TextBox/TextBoxButton.svelte';
 
 	type TextInputTypes =
 		| 'text'
@@ -64,12 +63,6 @@
 	export let revealButtonElement: HTMLButtonElement = null;
 
 	const dispatch = createEventDispatcher();
-	// const forwardEvents = createEventForwarder(get_current_component(), [
-	// 	'clear',
-	// 	'search',
-	// 	'reveal',
-	// 	'outermousedown'
-	// ]);
 
 	function handleClear(event: Event) {
 		dispatch('clear', event);
@@ -216,5 +209,5 @@ The TextBox control lets a user type text into an app. The text displays on the 
 </div>
 
 <style lang="scss">
-	@use './TextBox';
+  @use './TextBox';
 </style>

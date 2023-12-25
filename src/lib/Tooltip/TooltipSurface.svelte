@@ -25,5 +25,5 @@
 	// import { get_current_component } from "svelte/internal"; -->
 
 <style lang="scss">
-  @use './TooltipSurface';
+  @use 'TooltipSurface.scss';
 </style>

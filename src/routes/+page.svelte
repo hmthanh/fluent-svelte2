@@ -21,7 +21,7 @@
 	import IconButton from '$lib/IconButton/IconButton.svelte';
 	import InfoBadge from '$lib/InfoBadge/InfoBadge.svelte';
 	import InfoBar from '$lib/InfoBar/InfoBar.svelte';
-	import { ListItem } from '$lib';
+	import { ListItem, TextBlock } from '$lib';
 	import MenuBar from '$lib/MenuBar/MenuBar.svelte';
 	import MenuBarItem from '$lib/MenuBar/MenuBarItem.svelte';
 	import MenuFlyoutSurface from '$lib/MenuFlyout/MenuFlyoutSurface.svelte';
@@ -31,6 +31,11 @@
 	import PersonPicture from '$lib/PersonPicture/PersonPicture.svelte';
 	import ProgressBar from '$lib/ProgressBar/ProgressBar.svelte';
 	import ProgressRing from '$lib/ProgressRing/ProgressRing.svelte';
+	import RadioButton from '$lib/RadioButton/RadioButton.svelte';
+	import ScrollView from '$lib/ScrollView/ScrollView.svelte';
+	import Slider from '$lib/Slider/Slider.svelte';
+	import TextBoxButton from '$lib/TextBox/TextBoxButton.svelte';
+	import ToggleSwitch from '$lib/ToggleSwitch/ToggleSwitch.svelte';
 
 	let dateNow = new Date();
 
@@ -39,6 +44,10 @@
 	}
 
 	let value = 'Default value';
+
+	let flavor = 'chocolate';
+	let valueSlider = 10;
+	let checked = true;
 </script>
 
 <h1>Welcome to your library project</h1>
@@ -135,27 +144,28 @@
 
 
 <div>
-	<ContentDialog />
+	<RadioButton bind:group={flavor} value="chocolate">Chocolate</RadioButton>
+	<RadioButton bind:group={flavor} value="vanilla">Vanilla</RadioButton>
+	<RadioButton bind:group={flavor} value="strawberry">Strawberry</RadioButton>
+</div>
+<ScrollView />
+
+<div>
+	<Slider bind:valueSlider min={-100} max={100} step={10} ticks={[-50, 0, 50]} />
+</div>
+
+<div>
+	<TextBlock />
+</div>
+
+<div>
+	<TextBox />
+	<TextBoxButton />
 </div>
 
 
 <div>
-	<ContentDialog />
-</div>
-
-
-<div>
-	<ContentDialog />
-</div>
-
-
-<div>
-	<ContentDialog />
-</div>
-
-
-<div>
-	<ContentDialog />
+	<ToggleSwitch bind:checked />
 </div>
 
 <div>

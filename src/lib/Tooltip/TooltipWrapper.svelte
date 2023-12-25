@@ -2,8 +2,8 @@
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import { getCSSDuration } from '$lib/utils.js';
+	import TooltipSurface from '$lib/Tooltip/TooltipSurface.svelte';
 
-	import TooltipSurface from './TooltipSurface.svelte';
 
 	/** Specifies the tooltip's text content. */
 	export let text = '';

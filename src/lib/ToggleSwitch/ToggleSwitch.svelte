@@ -11,7 +11,7 @@
 	export let disabled = false;
 
 	/** Specifies a custom class name for the switch. */
-	let className = "";
+	let className = '';
 	export { className as class };
 
 	/** Obtains a bound DOM reference to the switch's <input /> element. */
@@ -49,5 +49,5 @@ The toggle switch represents a physical switch that allows users to turn things 
 </label>
 
 <style lang="scss">
-	@use "./ToggleSwitch";
+  @use "./ToggleSwitch";
 </style>

@@ -1,8 +1,6 @@
 <script lang="ts">
-	// import { createEventForwarder, TooltipSurface } from "$lib/internal.txt";
 	import { createEventDispatcher } from 'svelte';
 	import TooltipSurface from '$lib/Tooltip/TooltipSurface.svelte';
-	// import { get_current_component } from "svelte/internal";
 
 	/** The slider's current value. */
 	export let value = 0;
@@ -76,11 +74,6 @@
 	}
 
 	const dispatch = createEventDispatcher();
-	const forwardEvents = createEventForwarder(get_current_component(), [
-		'input',
-		'change',
-		'beforeinput'
-	]);
 
 	// Divides the current value minus the minimum value
 	// by the difference between the max and min values,
@@ -202,7 +195,6 @@ A slider is a control that lets the user select from a range of values by moving
     ```
 -->
 <div
-	use:forwardEvents
 	on:mousedown|preventDefault={() => {
 		holding = true;
 		dragging = true;

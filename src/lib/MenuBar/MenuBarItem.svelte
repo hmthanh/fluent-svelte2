@@ -1,10 +1,10 @@
 <script lang="ts">
 	// import type { SvelteComponentTyped } from 'svelte';
-	import { currentMenu } from './flyoutState';
 	import { tabbable } from 'tabbable';
 	import { createEventDispatcher, getContext, setContext } from 'svelte';
 	import { arrowNavigation, externalMouseEvents, uid } from '$lib/utils.js';
 	import MenuFlyoutSurface from '$lib/MenuFlyout/MenuFlyoutSurface.svelte';
+	import { currentMenu } from '$lib/MenuBar/flyoutState.js';
 
 	// import MenuFlyoutSurface from "../MenuFlyout/MenuFlyoutSurface.svelte";
 
