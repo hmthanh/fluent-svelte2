@@ -492,7 +492,6 @@ A calendar view lets a user view and interact with a calendar that they can navi
 <div
 	class="calendar-view {className}"
 	class:floating={__floating}
-	use:forwardEvents
 	bind:this={element}
 	{...$$restProps}
 >

@@ -3,8 +3,9 @@
 	// import Flyout from "../Flyout/FlyoutWrapper.svelte";
 	// import Button from "../Button/Button.svelte";
 
-	import {Flyout} from "$lib/Flyout/FlyoutWrapper.svelte"
-	import { Button } from '$lib/Button/Button';
+	import Flyout from '$lib/Flyout/FlyoutWrapper.svelte';
+	import Button from '$lib/Button/Button.svelte';
+	import CalendarView from '$lib/CalendarView/CalendarView.svelte';
 
 	/** The currently selected calendar date. */
 	export let value: Date | null;
@@ -16,7 +17,7 @@
 	export let locale: string = undefined;
 
 	/** Placeholder text that will be displayed on the calendar's input field if no value is specified. This string is not localized and will be displayed in english if no property is set. */
-	export let placeholder = "Pick a date";
+	export let placeholder = 'Pick a date';
 
 	/** Controls whether the picker is intended for user interaction, and styles it accordingly. */
 	export let disabled = false;
@@ -25,10 +26,10 @@
 	export let closable = true;
 
 	/** Direction that the flyout will be opened from. */
-	export let placement: "top" | "bottom" | "left" | "right" = "bottom";
+	export let placement: 'top' | 'bottom' | 'left' | 'right' = 'bottom';
 
 	/** Alignment of the menu along the clickable target's given axis. */
-	export let alignment: "start" | "center" | "end" = "center";
+	export let alignment: 'start' | 'center' | 'end' = 'center';
 
 	/** Distance of the flyout from the control button in pixels. */
 	export let offset = 4;
@@ -38,7 +39,7 @@
 
 	function handleKeyDown(event) {
 		event.stopPropagation();
-		if (event.key === "Escape") open = false;
+		if (event.key === 'Escape') open = false;
 	}
 </script>
 
@@ -85,5 +86,5 @@
 </Flyout>
 
 <style lang="scss">
-	@use "./CalendarDatePicker";
+  @use "./CalendarDatePicker";
 </style>

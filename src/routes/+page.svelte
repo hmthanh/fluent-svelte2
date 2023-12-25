@@ -10,6 +10,8 @@
 	import TextBox from '$lib/TextBox/TextBox.svelte';
 	import TooltipWrapper from '$lib/Tooltip/TooltipWrapper.svelte';
 	import AutoSuggestBox from '$lib/AutoSuggestBox/AutoSuggestBox.svelte';
+	import CalendarView from '$lib/CalendarView/CalendarView.svelte';
+	import CalendarDatePicker from '$lib/CalendarDatePicker/CalendarDatePicker.svelte';
 
 	function onClick() {
 		console.log('click');
@@ -23,11 +25,16 @@
 
 <Button variant="standard" on:click={onClick}>standard</Button>
 
-<TextBox placeholder="placeholder" type="text"  bind:value />
+<TextBox placeholder="placeholder" type="text" bind:value />
 
 <Button variant="accent">accent</Button>
 
 <TooltipWrapper />
 
 
-<AutoSuggestBox/>
+<AutoSuggestBox />
+
+<CalendarView />
+
+<CalendarDatePicker/>
+
