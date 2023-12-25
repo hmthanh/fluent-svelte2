@@ -27,7 +27,7 @@
 		"!dist/**/*.spec.*"
 	],
 	"peerDependencies": {
-		"svelte": "^5.0.0"
+		"svelte": "^5.0.0-next.26"
 	},
 	"dependencies": {
 		"focus-trap": "^7.5.4",
