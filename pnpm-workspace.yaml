@@ -2,3 +2,4 @@ packages:
   - ".github/actions/*"
   - "packages/*"
   - "apps/*"
+  - "!packages/my-turborepo"
