@@ -1,13 +1,14 @@
 <script lang="ts">
-	import { createEventDispatcher, tick } from "svelte";
-	import { get_current_component, onMount } from "svelte/internal";
+	import { createEventDispatcher, onMount, tick } from 'svelte';
+	// import { get_current_component, onMount } from "svelte/internal";
 
-	import { createEventForwarder, externalMouseEvents, uid } from "$lib/internal.txt";
+	// import { createEventForwarder, externalMouseEvents, uid } from "$lib/internal.txt";
 
 	import ComboBoxItem from "./ComboBoxItem.svelte";
 	import Button from "../Button/Button.svelte";
 	import TextBox from "../TextBox/TextBox.svelte";
 	import TextBoxButton from "../TextBox/TextBoxButton.svelte";
+	import { uid } from '$lib/utils.js';
 
 	interface Item {
 		name: string;
@@ -55,15 +56,6 @@
 	/** Obtains a bound DOM reference to the ComboBox's trigger button element. */
 	export let buttonElement: HTMLButtonElement = null;
 
-	const forwardEvents = createEventForwarder(get_current_component(), [
-		"open",
-		"close",
-		"select",
-		"change",
-		"input",
-		"beforeinput",
-		"keydown"
-	]);
 	const dispatch = createEventDispatcher();
 	const buttonId = uid("fds-combo-box-button-");
 	const dropdownId = uid("fds-combo-box-dropdown-");
@@ -219,9 +211,8 @@ When the combo box is closed, it either displays the current selection or is emp
 	]} />
     ```
 -->
+<!--	use:externalMouseEvents={{ type: "mousedown" }}-->
 <div
-	use:forwardEvents
-	use:externalMouseEvents={{ type: "mousedown" }}
 	class="combo-box {className}"
 	class:disabled
 	class:editable

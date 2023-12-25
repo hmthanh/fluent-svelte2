@@ -12,6 +12,10 @@
 	import AutoSuggestBox from '$lib/AutoSuggestBox/AutoSuggestBox.svelte';
 	import CalendarView from '$lib/CalendarView/CalendarView.svelte';
 	import CalendarDatePicker from '$lib/CalendarDatePicker/CalendarDatePicker.svelte';
+	import Checkbox from '$lib/Checkbox/Checkbox.svelte';
+	import ComboBox from '$lib/ComboBox/ComboBox.svelte';
+
+	let dateNow = new Date();
 
 	function onClick() {
 		console.log('click');
@@ -31,10 +35,13 @@
 
 <TooltipWrapper />
 
-
 <AutoSuggestBox />
 
 <CalendarView />
 
-<CalendarDatePicker/>
 
+<CalendarDatePicker value={dateNow} />
+
+<Checkbox />
+
+<ComboBox />

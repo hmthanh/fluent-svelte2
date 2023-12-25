@@ -15,7 +15,7 @@
 	export let disabled = false;
 
 	/** Specifies a custom class name for the checkbox. */
-	let className = "";
+	let className = '';
 	export { className as class };
 
 	/** Obtains a bound DOM reference to the checkbox's <input /> element. */
@@ -75,5 +75,5 @@ Checkboxes represent a control that a user can select (check) or clear (uncheck)
 </label>
 
 <style lang="scss">
-	@use "./Checkbox";
+  @use "./Checkbox";
 </style>
