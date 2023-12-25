@@ -7,11 +7,11 @@ export default defineConfig({
     include: ['src/**/*.{test,spec}.{js,ts}']
   },
   optimizeDeps: {
-    include: ['@repo/ui'],
+    include: ['@repo/fluentui-svelte'],
   },
   build: {
     commonjsOptions: {
-      include: [/@repo-ui/, /node_modules/],
+      include: [/@repo-fluentui-svelte/, /node_modules/],
     },
   },
 });
