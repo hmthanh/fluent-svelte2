@@ -6,8 +6,8 @@
   }
 </script>
 
-<button on:click={handleClick}>
-  clicks: {count}
+<button on:click={handleClick}>222
+  click2222: {count}222
 </button>
 
 <style >

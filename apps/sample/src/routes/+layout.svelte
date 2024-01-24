@@ -12,7 +12,7 @@
 
 	// let items = [
 	// 	{
-	// 		name: 'Docs',
+	// 		name: 'Docs',ư
 	// 		href: '/docs',
 	// 		icon: News
 	// 	}
@@ -79,7 +79,6 @@
 	</Tooltip>
 </Navbar> -->
 <main>
-	Hello
 	<slot />
 </main>
 

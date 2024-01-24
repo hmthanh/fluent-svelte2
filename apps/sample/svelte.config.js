@@ -9,28 +9,25 @@ import slug from "rehype-slug";
 import github from "remark-github";
 // import examples from "mdsvexamples";
 // import examplesVite from "mdsvexamples/vite";
-
 // import vitePluginSveld from "vite-plugin-sveld";
-
 // const { sveld } = vitePluginSveld;
-
 // import { mdsvex } from "mdsvex";
 
 
 // mdsvex({
-		// 	extensions: [".svx", ".md"],
-		// 	remarkPlugins: [
-		// 		github,
-		// 		a11yEmoji,
-		// 		[
-		// 			examples,
-		// 			{
-		// 				ExampleComponent: "/src/site/lib/Example/Example.svelte"
-		// 			}
-		// 		]
-		// 	],
-		// 	rehypePlugins: [slug]
-		// }),
+// 	extensions: [".svx", ".md"],
+// 	remarkPlugins: [
+// 		github,
+// 		a11yEmoji,
+// 		[
+// 			examples,
+// 			{
+// 				ExampleComponent: "/src/site/lib/Example/Example.svelte"
+// 			}
+// 		]
+// 	],
+// 	rehypePlugins: [slug]
+// }),
 
 
 /** @type {import("@sveltejs/kit").Config} */
@@ -38,7 +35,7 @@ const config = {
 	// Consult https://kit.svelte.dev/docs/integrations#preprocessors
 	// for more information about preprocessors
 	preprocess: [vitePreprocess(),
-		
+
 		preprocess({
 			postcss: {
 				plugins: [autoprefixer(), cssnano(), prefixer({ prefix: "fds-" })]
@@ -55,13 +52,17 @@ const config = {
 			"$site/*": "./src/site/*",
 			"$site/lib": "./src/site/lib",
 			"$site/lib/*": "./src/site/lib/*",
-			"fluent-svelte": "./src/lib"
-		},
+			"$add": "./src/add",
+			"$add/*": "./src/add/*",
+			"$lib": "./src/lib"
+			// "lib2": "./src/lib2"
+		}
 		// vite: []
-	},
+	}
 };
+// "fluent-svelte": "./src/lib",
 
-	// vitePlugin: [sveld()]
+// vitePlugin: [sveld()]
 export default config;
 
 

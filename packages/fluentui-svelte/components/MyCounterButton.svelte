@@ -6,9 +6,11 @@
   }
 </script>
 
-<button on:click={handleClick}>
-  clicks: {count}
-</button>
+      <div class="bg-red-500">
+                                  <button on:click={handleClick}>
+        clicks: {count}
+      </button>
+      </div>
 
 <style>
   button {
