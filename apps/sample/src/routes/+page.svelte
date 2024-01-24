@@ -140,7 +140,7 @@
 	</div>
 
 	<!--	*************************************-->
-	<div class="hero-cards">
+	<div class="hero-cards ">
 		<HeroCard>
 			<svelte:fragment slot="header">
 				<TextBlock variant="bodyStrong">1. Install</TextBlock>

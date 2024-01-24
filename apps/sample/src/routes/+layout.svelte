@@ -1,37 +1,12 @@
 <script lang="ts">
 	// import { Navbar } from '$site/lib';
+	import { Navbar } from "$add";
 	// import Site from '@repo/site';
 	// { Navbar }
-	// import { IconButton, Tooltip } from '$lib';
-	// import { dev } from '$app/environment';
+	import { IconButton, Tooltip } from "$lib";
+	import { dev } from "$app/environment";
 
-	// import '$lib/theme.css';
-
-	// import News from '@fluentui/svg-icons/icons/news_24_regular.svg?raw';
-	// import Wrench from '@fluentui/svg-icons/icons/wrench_24_regular.svg?raw';
-
-	// let items = [
-	// 	{
-	// 		name: 'Docs',ư
-	// 		href: '/docs',
-	// 		icon: News
-	// 	}
-	// ];
-
-	// if (dev) {
-	// 	items.push({
-	// 		name: 'test',
-	// 		href: '/test',
-	// 		icon: Wrench
-	// 	});
-	// 	items = items;
-	// }
-	// import { Navbar } from '$site/lib';
-	// import { IconButton, Tooltip } from '$lib';
-
-	// import { dev } from '$app/env';
-
-	// import "../site/styles/pages/home.scss";
+	import "$lib/theme.css";
 
 	// import News from '@fluentui/svg-icons/icons/news_24_regular.svg?raw';
 	// import Wrench from '@fluentui/svg-icons/icons/wrench_24_regular.svg?raw';
@@ -52,9 +27,37 @@
 	// 	});
 	// 	items = items;
 	// }
+	// import { Navbar } from '$site/lib';
+	// import { IconButton, Tooltip } from '$lib';
+
+	// import { dev } from '$app/env';
+
+	// import "../site/styles/pages/home.scss";
+	import "../add/home.scss";
+	import "../add/global.scss";
+
+	import News from "@fluentui/svg-icons/icons/news_24_regular.svg?raw";
+	import Wrench from "@fluentui/svg-icons/icons/wrench_24_regular.svg?raw";
+
+	let items = [
+		{
+			name: "Docs",
+			href: "/docs",
+			icon: News
+		}
+	];
+
+	if (dev) {
+		items.push({
+			name: "test",
+			href: "/test",
+			icon: Wrench
+		});
+		items = items;
+	}
 </script>
 
-<!-- <Navbar {items}>
+<Navbar {items}>
 	<Tooltip slot="buttons" placement="left" offset={8} text="View GitHub">
 		<IconButton href="https://github.com/tropix126/fluent-svelte/" rel="noreferrer noopener">
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
@@ -65,8 +68,8 @@
 			</svg>
 		</IconButton>
 	</Tooltip>
-</Navbar> -->
-<!-- <Navbar {items}>
+</Navbar>
+<Navbar {items}>
 	<Tooltip slot="buttons" placement="left" offset={8} text="View GitHub">
 		<IconButton href="https://github.com/tropix126/fluent-svelte/" rel="noreferrer noopener">
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
@@ -77,7 +80,7 @@
 			</svg>
 		</IconButton>
 	</Tooltip>
-</Navbar> -->
+</Navbar>
 <main>
 	<slot />
 </main>
@@ -85,3 +88,7 @@
 <!-- <style lang="scss">
 	@use "$site/styles/global.scss";
 </style> -->
+
+<style lang="scss">
+  //@use "../add/global.scss";
+</style>
