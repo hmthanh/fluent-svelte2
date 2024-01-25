@@ -1,17 +1,49 @@
-/* Error: Undefined mixin.
- *    ,
- * 55 |       @include flex($inline: true, $wrap: true, $gap: 8px);
- *    |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
- *    '
- *   PageSection.scss 55:7  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Undefined mixin.\a    \2577 \a 55 \2502        @include flex($inline: true, $wrap: true, $gap: 8px);\d\a    \2502        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\a    \2575 \a   PageSection.scss 55:7  root stylesheet";
+.page-section-inner {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1440px;
+  padding: 72px;
 }
+.page-section :global h1,
+.page-section :global h2,
+.page-section :global h3 {
+  margin: 0;
+  font-family: var(--font-family-display);
+  color: var(--text-primary);
+  font-weight: 600;
+  line-height: normal;
+}
+.page-section :global h1 {
+  font-size: 7.2rem;
+}
+.page-section :global h2 {
+  font-size: 4.8rem;
+}
+.page-section :global h3 {
+  font-size: 3.2rem;
+}
+.page-section :global p:not([class]) {
+  max-width: 65ch;
+  margin-block: 12px 24px;
+  color: var(--text-secondary);
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.65;
+}
+@media (prefers-color-scheme: dark) {
+  .page-section :global p:not([class]) {
+    color: var(--text-tertiary);
+  }
+}
+.page-section :global hr:not([class]) {
+  margin: 0 0 24px;
+  border: none;
+  border-block-start: 1px solid var(--divider-default);
+}
+.page-section :global .buttons-spacer {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/*# sourceMappingURL=PageSection.css.map */

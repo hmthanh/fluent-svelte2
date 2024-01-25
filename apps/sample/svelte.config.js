@@ -7,12 +7,13 @@ import prefixer from "postcss-variables-prefixer";
 import a11yEmoji from "@fec/remark-a11y-emoji";
 import slug from "rehype-slug";
 import github from "remark-github";
+import { sveld } from "sveld";
 // import examples from "mdsvexamples";
 // import examplesVite from "mdsvexamples/vite";
+import mdsvexExamplesVite from "mdsvexamples/vite";
 // import vitePluginSveld from "vite-plugin-sveld";
 // const { sveld } = vitePluginSveld;
 // import { mdsvex } from "mdsvex";
-
 
 // mdsvex({
 // 	extensions: [".svx", ".md"],
@@ -29,18 +30,23 @@ import github from "remark-github";
 // 	rehypePlugins: [slug]
 // }),
 
+// extensions: [".svelte", ".md", ".svx"],
 
 /** @type {import("@sveltejs/kit").Config} */
 const config = {
 	// Consult https://kit.svelte.dev/docs/integrations#preprocessors
 	// for more information about preprocessors
-	preprocess: [vitePreprocess(),
-
+	preprocess: [
+		vitePreprocess(),
 		preprocess({
 			postcss: {
 				plugins: [autoprefixer(), cssnano(), prefixer({ prefix: "fds-" })]
+			},
+			sveld: {
+				plugins: [sveld()]
 			}
-		})],
+		})
+	],
 
 	kit: {
 		// adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.
@@ -48,23 +54,24 @@ const config = {
 		// See https://kit.svelte.dev/docs/adapters for more information about adapters.
 		adapter: adapter(),
 		alias: {
-			"$site": "./src/site",
+			$site: "./src/site",
 			"$site/*": "./src/site/*",
 			"$site/lib": "./src/site/lib",
 			"$site/lib/*": "./src/site/lib/*",
-			"$add": "./src/add",
+			$add: "./src/add",
 			"$add/*": "./src/add/*",
-			"$lib": "./src/lib"
-			// "lib2": "./src/lib2"
+			$lib: "./src/lib"
 		}
-		// vite: []
-	}
+	},
+	extensions: [".svelte", ".md", ".svx"],
+	vitePlugin: {}
 };
+// vite: []
+// vitePlugin: [sveld()]
 // "fluent-svelte": "./src/lib",
 
 // vitePlugin: [sveld()]
 export default config;
-
 
 // vite: {
 // 			plugins: [sveld(), examplesVite],

@@ -212,6 +212,8 @@ When the combo box is closed, it either displays the current selection or is emp
     ```
 -->
 <!--	use:externalMouseEvents={{ type: "mousedown" }}-->
+<!--			on:keydown-->
+on:input
 <div
 	class="combo-box {className}"
 	class:disabled
@@ -240,9 +242,7 @@ When the combo box is closed, it either displays the current selection or is emp
 			on:focus={handleInputFocus}
 			on:blur={handleInputBlur}
 			on:change
-			on:input
 			on:beforeinput
-			on:keydown
 			{placeholder}
 			{disabled}
 		>

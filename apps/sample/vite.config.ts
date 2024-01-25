@@ -1,10 +1,11 @@
 import { sveltekit } from "@sveltejs/kit/vite";
 import { defineConfig } from "vitest/config";
+import { sveld } from "sveld";
 
 // import { mdsvex } from "mdsvex";
 
 export default defineConfig({
-	plugins: [sveltekit()],
+	plugins: [sveltekit(), sveld()],
 	test: {
 		include: ["src/**/*.{test,spec}.{js,ts}"]
 	},

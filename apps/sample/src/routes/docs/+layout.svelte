@@ -1,5 +1,6 @@
 <script context="module" lang="ts">
 	import type { Load } from '@sveltejs/kit';
+	import "../../add/docs.scss";
 	import { docsPages } from '$site/data/docs';
 
 	export const prerender = true;
@@ -119,5 +120,5 @@
 </main>
 
 <style global lang="scss">
-  @use "$site/styles/pages/docs.scss";
+  //@use "$site/styles/pages/docs.scss";
 </style>

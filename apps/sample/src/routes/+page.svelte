@@ -26,98 +26,6 @@
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Button</span> <span class="token attr-name"><span class="token namespace">on:</span>click=</span><span class="token language-javascript"><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">}</span></span><span class="token punctuation">&gt;</span></span>Reset Counter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Button</span><span class="token punctuation">&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>`;
 </script>
-<!--
-
-
-<PageSection id="hero-section">
-	<div class="hero-contents">
-		<h1>Fluent Svelte</h1>
-		<p>A faithful implementation of Microsoft's Fluent Design System in Svelte.</p>
-		<div class="buttons-spacer">
-			<Button variant="accent" href="/docs">Get Started</Button>
-			<Button
-				href="https://github.com/tropix126/fluent-svelte"
-				target="_blank"
-				rel="noreferrer noopener">Source Code
-			</Button
-			>
-		</div>
-	</div>
-
-	<div class="hero-cards">
-		<HeroCard>
-			<svelte:fragment slot="header">
-				<TextBlock variant="bodyStrong">1. Install</TextBlock>
-				<IconButton
-					href="https://npmjs.com/package/fluent-svelte"
-					target="_blank"
-					rel="noreferrer noopener"
-				>
-					{@html Box}
-				</IconButton>
-			</svelte:fragment>
-
-			<TextBlock>npm</TextBlock>
-			<CopyBox value="npm i --save-dev fluent-svelte" />
-
-			<TextBlock>using pnpm</TextBlock>
-			<CopyBox value="pnpm i --save-dev fluent-svelte" />
-
-			<TextBlock>...or with yarn</TextBlock>
-			<CopyBox value="yarn add --dev fluent-svelte" />
-
-			<Button variant="accent">Learn More</Button>
-		</HeroCard>
-		<HeroCard>
-			<svelte:fragment slot="header">
-				<TextBlock variant="bodyStrong">2. Build</TextBlock>
-				<IconButton href="/docs">
-					{@html Book}
-				</IconButton>
-			</svelte:fragment>
-
-			<div class="editor-body">
-				<ul class="editor-tabs">
-					<li>index.svelte</li>
-				</ul>
-				<div class="editor">
-					<aside class="line-numbers">
-						{#each example.split(/\r\n|\r|\n/) as line, i}
-							<span>{i + 1}</span>
-						{/each}
-					</aside>
-					<pre>
-                        <code>
-                            {@html example}
-                        </code>
-                    </pre>
-				</div>
-			</div>
-		</HeroCard>
-		<HeroCard>
-			<svelte:fragment slot="header">
-				<TextBlock variant="bodyStrong">3. View</TextBlock>
-				<IconButton
-					href="https://svelte.dev/repl/b90fb12e06e84aabb303121f713d1296"
-					target="_blank"
-					rel="noreferrer noopener"
-				>
-					{@html Open}
-				</IconButton>
-			</svelte:fragment>
-			<div class="example-app">
-				<TextBlock variant="display">{exampleCount}</TextBlock>
-				<div>
-					<Button variant="accent" on:click={() => (exampleCount += 1)}
-					>Increase Count
-					</Button
-					>
-					<Button on:click={() => (exampleCount = 0)}>Reset Count</Button>
-				</div>
-			</div>
-		</HeroCard>
-	</div>
-</PageSection> -->
 
 <Metadata
 	title="Fluent Svelte"
@@ -140,7 +48,7 @@
 	</div>
 
 	<!--	*************************************-->
-	<div class="hero-cards ">
+	<div class="hero-cards">
 		<HeroCard>
 			<svelte:fragment slot="header">
 				<TextBlock variant="bodyStrong">1. Install</TextBlock>
@@ -190,28 +98,28 @@
 				</div>
 			</div>
 		</HeroCard>
-				<HeroCard>
-					<svelte:fragment slot="header">
-						<TextBlock variant="bodyStrong">3. View</TextBlock>
-						<IconButton
-							href="https://svelte.dev/repl/b90fb12e06e84aabb303121f713d1296"
-							target="_blank"
-							rel="noreferrer noopener"
-						>
-							<!--{@html Open}-->
-						</IconButton>
-					</svelte:fragment>
-					<div class="example-app">
-						<TextBlock variant="display">{exampleCount}</TextBlock>
-						<div>
-							<Button variant="accent" on:click={() => (exampleCount += 1)}
-							>Increase Count
-							</Button
-							>
-							<Button on:click={() => (exampleCount = 0)}>Reset Count</Button>
-						</div>
-					</div>
-				</HeroCard>
+		<HeroCard>
+			<svelte:fragment slot="header">
+				<TextBlock variant="bodyStrong">3. View</TextBlock>
+				<IconButton
+					href="https://svelte.dev/repl/b90fb12e06e84aabb303121f713d1296"
+					target="_blank"
+					rel="noreferrer noopener"
+				>
+					<!--{@html Open}-->
+				</IconButton>
+			</svelte:fragment>
+			<div class="example-app">
+				<TextBlock variant="display">{exampleCount}</TextBlock>
+				<div>
+					<Button variant="accent" on:click={() => (exampleCount += 1)}
+					>Increase Count
+					</Button
+					>
+					<Button on:click={() => (exampleCount = 0)}>Reset Count</Button>
+				</div>
+			</div>
+		</HeroCard>
 	</div>
 </PageSection>
 

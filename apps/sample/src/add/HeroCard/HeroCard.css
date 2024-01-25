@@ -1,18 +1,30 @@
-/* Error: Can't find stylesheet to import.
- *   ,
- * 1 | @use "src/lib/mixins";
- *   | ^^^^^^^^^^^^^^^^^^^^^
- *   '
- *   ..\..\styles\_mixins.scss 1:1  @use
- *   HeroCard.scss 2:1              root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Can't find stylesheet to import.\a   \2577 \a 1 \2502  @use \"src/lib/mixins\";\d\a   \2502  ^^^^^^^^^^^^^^^^^^^^^\a   \2575 \a   ..\\..\\styles\\_mixins.scss 1:1  @use\a   HeroCard.scss 2:1              root stylesheet";
+.hero-card {
+  user-select: none;
+  font-family: var(--font-family-text);
+  font-size: var(--body-font-size);
+  font-weight: normal;
+  line-height: 20px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  position: relative;
+  padding: 12px;
+  backdrop-filter: blur(60px) saturate(125%);
+  border-radius: var(--overlay-corner-radius);
+  background-color: var(--card-background-default);
+  border: 1px solid var(--card-stroke-default);
+  background-clip: padding-box;
+  box-shadow: var(--card-shadow);
+  transition: var(--control-normal-duration) var(--control-fast-out-slow-in-easing);
 }
+.hero-card:hover {
+  box-shadow: var(--flyout-shadow);
+  transform: translateY(-4px);
+}
+.hero-card header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+/*# sourceMappingURL=HeroCard.css.map */

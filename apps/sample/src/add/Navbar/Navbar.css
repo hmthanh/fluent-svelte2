@@ -1,18 +1,103 @@
-/* Error: Can't find stylesheet to import.
- *   ,
- * 1 | @use "src/lib/mixins";
- *   | ^^^^^^^^^^^^^^^^^^^^^
- *   '
- *   ..\..\styles\_mixins.scss 1:1  @use
- *   Navbar.scss 1:1                root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Can't find stylesheet to import.\a   \2577 \a 1 \2502  @use \"src/lib/mixins\";\d\a   \2502  ^^^^^^^^^^^^^^^^^^^^^\a   \2575 \a   ..\\..\\styles\\_mixins.scss 1:1  @use\a   Navbar.scss 1:1                root stylesheet";
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  transform: translateY(0.001px);
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  z-index: 1000;
+  inline-size: 100%;
+  min-block-size: 56px;
+  box-sizing: border-box;
+  border-bottom: 1px solid var(--surface-stroke-flyout);
+  background-color: var(--layer-background-default);
+  background-clip: padding-box;
+  backdrop-filter: blur(60px);
 }
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  inline-size: 100%;
+  max-inline-size: 1440px;
+  padding-inline: 18px 12px;
+  margin: 0 auto;
+}
+.navbar a:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-stroke);
+}
+.navbar nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  flex: 1 1 auto;
+  padding: 0 16px;
+}
+.navbar nav a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--control-corner-radius);
+  position: relative;
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: var(--control-fast-duration) var(--control-fast-out-slow-in-easing);
+  padding: 5px 11px;
+}
+.navbar nav a:hover, .navbar nav a.selected {
+  background-color: var(--subtle-fill-secondary);
+}
+.navbar nav a:active {
+  background-color: var(--subtle-fill-tertiary);
+}
+.navbar nav a.selected {
+  color: var(--accent-text-primary);
+}
+.navbar nav a > :global(svg) {
+  width: calc(var(--body-font-size) + 2px);
+  height: auto;
+  fill: currentColor;
+  margin-right: 8px;
+}
+
+.logo,
+.buttons {
+  flex: 0 0 auto;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  position: relative;
+  color: var(--text-primary);
+  transition: var(--control-fast-duration) var(--control-fast-out-slow-in-easing);
+  font-family: var(--fds-font-family-display);
+  font-size: 20px;
+  font-weight: 600;
+}
+.logo:hover {
+  color: var(--text-secondary);
+}
+.logo > img {
+  margin-inline-end: 14px;
+  width: auto;
+  height: 32px;
+}
+.logo :global(.text-block) {
+  color: var(--text-secondary);
+  margin-inline-start: 6px;
+  position: relative;
+  top: 1px;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/*# sourceMappingURL=Navbar.css.map */

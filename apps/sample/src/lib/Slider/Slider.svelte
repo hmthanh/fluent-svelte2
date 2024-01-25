@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { createEventDispatcher } from 'svelte';
-	import TooltipSurface from '$lib/Tooltip/TooltipSurface.svelte';
+	import { createEventDispatcher } from "svelte";
+	import TooltipSurface from "$lib/Tooltip/TooltipSurface.svelte";
 
 	/** The slider's current value. */
 	export let value = 0;
@@ -18,22 +18,22 @@
 	export let ticks: number[] = [];
 
 	/** Determines the placement of slider ticks around the track. */
-	export let tickPlacement: 'around' | 'before' | 'after' = 'around';
+	export let tickPlacement: "around" | "before" | "after" = "around";
 
 	/** Determines if the slider's value tooltip will be shown. */
 	export let tooltip = true;
 
 	/** Text placed before the slider's value tooltip. */
-	export let prefix = '';
+	export let prefix = "";
 
 	/** Text placed after the slider's value tooltip. */
-	export let suffix = '';
+	export let suffix = "";
 
 	/** Determines if the slider's fill track will be visible or not. */
 	export let track = true;
 
 	/** Determines the slider's orientation. */
-	export let orientation: 'vertical' | 'horizontal' = 'horizontal';
+	export let orientation: "vertical" | "horizontal" = "horizontal";
 
 	/** Determines if the slider track will be in reverse direction. */
 	export let reverse = false;
@@ -42,7 +42,7 @@
 	export let disabled = false;
 
 	/** Specifies a custom class name for the slider's container element. */
-	let className = '';
+	let className = "";
 	export { className as class };
 
 	/** Obtains a bound DOM reference to the slider's input element. */
@@ -70,7 +70,7 @@
 
 	$: if (containerElement) {
 		directionAwareReverse =
-			window?.getComputedStyle(containerElement).direction === 'ltr' ? reverse : !reverse;
+			window?.getComputedStyle(containerElement).direction === "ltr" ? reverse : !reverse;
 	}
 
 	const dispatch = createEventDispatcher();
@@ -95,16 +95,16 @@
 		const percentageX = event.touches ? event.touches[0].clientX : event.clientX;
 		const percentageY = event.touches ? event.touches[0].clientY : event.clientY;
 
-		const position = orientation === 'horizontal' ? percentageX : percentageY;
+		const position = orientation === "horizontal" ? percentageX : percentageY;
 		const startingPos =
-			orientation === 'horizontal'
+			orientation === "horizontal"
 				? directionAwareReverse
 					? right
 					: left
 				: directionAwareReverse
 					? top
 					: bottom;
-		const length = orientation === 'horizontal' ? width : height;
+		const length = orientation === "horizontal" ? width : height;
 
 		let nextStep =
 			min +
@@ -112,7 +112,7 @@
 				((max - min) *
 					((position - startingPos) / length) *
 					(directionAwareReverse ? -1 : 1) *
-					(orientation === 'vertical' ? -1 : 1)) /
+					(orientation === "vertical" ? -1 : 1)) /
 				step
 			) *
 			step;
@@ -126,14 +126,14 @@
 	function handleArrowKeys(event) {
 		const { key } = event;
 
-		if (key === 'ArrowDown' || key === 'ArrowUp') event.preventDefault();
-		if (key === 'ArrowLeft' || (key === 'ArrowDown' && !disabled)) {
+		if (key === "ArrowDown" || key === "ArrowUp") event.preventDefault();
+		if (key === "ArrowLeft" || (key === "ArrowDown" && !disabled)) {
 			if (reverse) {
 				stepUp();
 			} else {
 				stepDown();
 			}
-		} else if (key === 'ArrowRight' || (key === 'ArrowUp' && !disabled)) {
+		} else if (key === "ArrowRight" || (key === "ArrowUp" && !disabled)) {
 			if (reverse) {
 				stepDown();
 			} else {
@@ -165,7 +165,7 @@
 		if (value < min) value = min;
 	}
 
-	$: dispatch('change', value);
+	$: dispatch("change", value);
 	$: percentage = valueToPercentage(value);
 	$: {
 		if (value <= min) value = min;
@@ -194,14 +194,18 @@ A slider is a control that lets the user select from a range of values by moving
     <Slider bind:value min={-100} max={100} step={10} ticks={[-50, 0, 50]} />
     ```
 -->
+
 <div
 	on:mousedown|preventDefault={() => {
 		holding = true;
 		dragging = true;
 	}}
+	role="slider"
+	aria-valuenow={value}
+	tabindex={disabled ? "-1" : "0"}
 	on:touchstart={handleTouchStart}
 	on:keydown={handleArrowKeys}
-	tabindex={disabled ? -1 : 0}
+	on:mousedown={() => ''}
 	style="--fds-slider-percentage: {percentage}%; --fds-slider-thumb-offset: {thumbClientWidth /
 		2 -
 		linearScale([0, 50], [0, thumbClientWidth / 2])(percentage)}px;"

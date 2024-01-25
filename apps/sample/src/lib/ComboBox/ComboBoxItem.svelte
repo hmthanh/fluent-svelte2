@@ -13,12 +13,12 @@
 	const dispath = createEventDispatcher();
 </script>
 
+<!--tabindex="0"-->
 <li
 	{...$$restProps}
 	class="combo-box-item {className}"
 	class:disabled
 	class:selected
-	tabindex="0"
 >
 	<slot name="icon" />
 	<span>

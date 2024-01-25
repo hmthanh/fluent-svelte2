@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { createEventDispatcher, setContext } from 'svelte';
+	import { createEventDispatcher, setContext } from "svelte";
 	// import { externalMouseEvents, arrowNavigation } from '$lib/internal.txt';
-	import { arrowNavigation } from '$lib/utils';
-	import { tabbable } from 'tabbable';
+	import { arrowNavigation } from "$lib/utils";
+	import { tabbable } from "tabbable";
 
-	import MenuFlyoutSurface from '../MenuFlyout/MenuFlyoutSurface.svelte';
+	import MenuFlyoutSurface from "../MenuFlyout/MenuFlyoutSurface.svelte";
 
 	/** Controls if the flyout will be closed when clicking a standard variant item. Only applies if `closable` is set to `true`. */
 	export let closeOnSelect = true;
@@ -33,7 +33,7 @@
 		y: 0
 	};
 
-	$: dispatch(open ? 'open' : 'close');
+	$: dispatch(open ? "open" : "close");
 	$: if (menu && tabbable(menuElement).length > 0) tabbable(menuElement)[0].focus();
 	$: if (anchorElement) {
 		const { width, height } = anchorElement.getBoundingClientRect();
@@ -57,7 +57,7 @@
 	}
 
 	function handleEscapeKey({ key }) {
-		if (key === 'Escape') open = false;
+		if (key === "Escape") open = false;
 	}
 
 	function mountMenu(node: HTMLDivElement) {
@@ -67,8 +67,8 @@
 		};
 	}
 
-	setContext('closeFlyout', event => {
-		dispatch('select');
+	setContext("closeFlyout", event => {
+		dispatch("select");
 		if (closeOnSelect) open = false;
 	});
 </script>
@@ -82,6 +82,7 @@
 	on:contextmenu|preventDefault|stopPropagation={handleContextMenu}
 	on:contextmenu
 	bind:this={wrapperElement}
+	on:click={() => ''}
 >
 	<slot />
 	{#if open}
@@ -89,6 +90,7 @@
 			use:arrowNavigation={{ preventTab: true }}
 			use:mountMenu
 			on:contextmenu|stopPropagation={e => e.preventDefault()}
+			on:click={() => ''}
 			bind:this={anchorElement}
 			on:outermousedown={() => (open = false)}
 			class="context-menu-anchor"
